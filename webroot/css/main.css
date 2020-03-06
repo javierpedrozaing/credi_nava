@@ -1,0 +1,399 @@
+span.i-search {
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+span.i-search span.b-search {
+    position: absolute;
+    top: -2px;
+    right: 12px;
+    color: #a3a3a3;
+}
+
+.modal.fade.show {
+    background: rgba(80,80,80,.3);
+}
+
+.card {box-shadow: 0 4px 7px 0 rgba(0,0,0,.34) !important;}
+.card .card-header .nav-tabs .nav-item {color: #ffffff; }
+.card .card-header .nav-tabs .nav-link.active {color: #333333; }
+.bg-black {background: #1c1511; }
+.cl-black {color: #ffffff; }
+.sidebar .logo .logo-mini { float: left;opacity: 1;float: left;width: 30px;text-align: center;margin-left: 23px;margin-right: 15px;}
+.sidebar .nav li .dropdown-menu a, .sidebar .nav li a { margin: 10px 15px 0;border-radius: 3px;color: #3C4858;padding-left: 10px;padding-right: 10px;text-transform: capitalize;font-size: 13px;}
+.button-filter-disabled { text-decoration: line-through !important; opacity: .85; }
+.button-filter-disabled:hover { text-decoration: line-through !important; opacity: .85; }
+.text-black { color: #000000; }
+div.dataTables_wrapper div.dataTables_info { padding-top: 32px; }
+
+.card-wizard .nav-pills {
+    background: rgba(200,200,200,.4);
+    background-color: rgba(200,200,200,.4);
+}
+
+td.day.active.weekend {
+    color: black;
+}
+
+.c-form-group-header input {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,.3);
+    border-radius: 2px;
+    padding: 0.10em 0.8em;
+    color: rgba(255,255,255,.85);
+}
+
+.c-form-group label{ width: 100%;margin: 0;padding: 0; }
+.c-form-group input, .c-form-group select, .c-form-group textarea, .c-form-group .form-control {
+    width: 100%;
+    height: auto;
+    padding: 0.45em 0.8em;
+    background: #FFF;
+    border: 1px solid #cccccc;
+    border-radius: 4px !important;
+    color: #000;
+    font-size: 16px;
+    line-height: 1.42857143;
+}
+input[type=radio], input[type=checkbox] {
+    display: inline-block;
+}
+.c-form-group input[disabled], .c-form-group select[disabled], .c-form-group textarea[disabled] {
+    background-color: #f6f6f6;
+}
+
+.ugly-field {
+    background-image: none !important;
+    border: 1px solid #8c8c8c;
+    border-radius: 4px;
+    height: 35px !important;
+    line-height: 1;
+    margin: 0px;
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    padding: 8px 16px;
+}
+.ugly-field-button {
+    height: 36px;
+    line-height: 1;
+}
+
+.c-form-group .has-error {
+    border-color: #de615f;
+    box-shadow: 1px 0px 3px 1px rgba(222, 97, 95, 0.25);
+}
+.c-form-group .has-error:focus {
+    border-color: grey;
+    box-shadow: none;
+}
+
+.modal.toogleFSTabsPdfs {
+    display: block;
+    z-index: 999999;
+}
+.modal.toogleFSTabsPdfs .modal-dialog {
+    height: 100vh;
+    margin: 0 !important;
+    position: absolute;
+    width: 100vw;
+}
+.modal.toogleFSTabsPdfs .modal-dialog .card.card-pdf {
+    bottom: 0;
+    height: 100vh;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    overflow: auto;
+    width: 100vw;
+}
+.modal.toogleFSTabsPdfs .modal-dialog .card.card-pdf .container-embed,
+.modal.toogleFSTabsPdfs .modal-dialog .card.card-pdf .content-embed {
+    min-height: calc(100vh - 45px);
+}
+.modal .modal-dialog .card-header .button-radio-full-screen {
+    box-shadow: none;
+    cursor: pointer;
+    position: absolute;
+    right: 8px;
+    top: 4px;
+
+    font-size: 14px;
+    padding: 4px 18px;
+}
+.modal .modal-dialog .card-header .button-radio-full-screen i {
+    line-height: 1;
+}
+
+/** CONTENEDOR DE SUBIR ARCHIVOS */
+.files-container .preview-file {
+    width: 100%;
+    min-height: 180px;
+    background: #f2f1f2;
+}
+.files-container .preview-file img {
+    width: 100%;
+}
+.files-container .file-zone {
+    width: 100%;
+    height: 100px;
+    background: #f0f0f0;
+    border-radius: 4px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    position: relative;
+}
+.files-container .file-zone .drop-zone {
+    border: 2px dashed #bbb;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    padding: 25px;
+    text-align: center;
+    font: 20pt bold 'Vollkorn';
+    color: #bbb;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.files-container .file-zone.drag-hover .drop-zone {
+    border: 2px solid #94b6ea;
+}
+.files-container .file-zone input[type="file"] {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #f0f0f0;
+    opacity: 0;
+}
+/** / CONTENEDOR DE SUBIR ARCHIVOS */
+
+/** WIZARDS */
+.wizard-container.custom-wizard .nav-item{
+    text-align: center;
+}
+.wizard-container.custom-wizard .nav-item .nav-link{
+    background-color: none;
+    transform: translate3d(-8px, 0px, 0px);
+    transition: transform 0s ease 0s;
+    color: #555 !important;
+}
+.wizard-container.custom-wizard .nav-item .nav-link.active{
+    background-color: #f44336 !important;
+    color: #fff !important;
+    box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(233,30,99,.4) !important;
+}
+
+.nav-tabs .nav-link.active,
+.nav-tabs .nav-link.active:focus, .nav-tabs .nav-link.active:hover,
+.nav-tabs .nav-link.active:hover, .nav-tabs .nav-link.active:focus {
+    border-color: #ee5452;
+}
+/** / WIZARDS */
+
+/** TABLAS */
+table.table.dataTable thead .sorting:before,
+table.table.dataTable thead .sorting:after,
+table.table.dataTable thead .sorting_asc:before,
+table.table.dataTable thead .sorting_desc:after,
+table.table.dataTable thead .sorting_desc_disabled:before,
+table.table.dataTable thead .sorting_asc_disabled:before,
+table.table.dataTable thead .sorting_desc_disabled:after,
+table.table.dataTable thead .sorting_asc_disabled:after,
+table.table.dataTable thead .sorting:after,
+table.table.dataTable thead .sorting_asc:after,
+table.table.dataTable thead .sorting_asc_disabled:after,
+table.table.dataTable thead .sorting_desc:after,
+table.table.dataTable thead .sorting_desc_disabled:after,
+table.table.dataTable thead .sorting:before,
+table.table.dataTable thead .sorting_asc:before,
+table.table.dataTable thead .sorting_asc_disabled:before,
+table.table.dataTable thead .sorting_desc:before,
+table.table.dataTable thead .sorting_desc_disabled:before {
+    content: none !important;
+}
+table.table.dataTable thead th {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1;
+}
+/** / TABLAS */
+
+/** DIALOGOS */
+.modal-dialog .modal-header {
+    padding: 12px 24px;
+}
+.modal-dialog .card-header.card-header-danger .nav.nav-tabs a.active,
+.modal-dialog .card-header.card-header-danger .nav.nav-tabs a:hover {
+    background-color: #d04b4a;
+    border: none;
+    border-bottom: 3px solid #d04b4a;
+    color: white;
+    height: 100%;
+}
+/** / DIALOGOS */
+
+/** BUTTONS */
+.button-float {
+    background-color: #ea4641;
+    border-radius: 50px;
+    bottom: 40px;
+    box-shadow: 2px 2px 3px #999;
+    color: #FFF;
+    height: 60px;
+    position: fixed;
+    right: 40px;
+    text-align: center;
+    width: 60px;
+}
+.button-float:hover, .button-float:focus {
+    background: #f54c3d;
+    color: #FFF;
+}
+.button-float .my-float {
+    margin-top: 20px;
+}
+
+.button-radio {
+    background-color: #ea4641;
+    border-radius: 50px;
+    box-shadow: 2px 2px 3px #999;
+    color: #FFF;
+    height: 36px;
+    text-align: center;
+    width: 36px;
+    border: none;
+}
+.button-radio:hover, .button-radio:focus {
+    background: #f54c3d;
+    color: #FFF;
+}
+/** / BUTTONS */
+
+/** Para el Form Group Styles **/
+/* .input-group {
+    position: relative;
+    display: table;
+    border-collapse: separate;
+}
+.form-group {
+    margin-bottom: 15px;
+}
+.form-control {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+.input-group .form-control {
+    position: relative;
+    z-index: 2;
+    float: left;
+    width: 100%;
+    margin-bottom: 0;
+}
+.input-group-addon, .input-group-btn, .input-group .form-control {
+    display: table-cell;
+}
+.input-group .form-control:first-child, .input-group-addon:first-child, .input-group-btn:first-child>.btn, .input-group-btn:first-child>.btn-group>.btn, .input-group-btn:first-child>.dropdown-toggle, .input-group-btn:last-child>.btn:not(:last-child):not(.dropdown-toggle), .input-group-btn:last-child>.btn-group:not(:last-child)>.btn {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+} */
+/** / Para el Form Group Styles **/
+
+
+
+
+
+.tim-row{
+    margin-bottom: 20px;
+}
+
+.tim-white-buttons {
+    background-color: #777777;
+}
+.typography-line{
+    padding-left: 25%;
+    margin-bottom: 35px;
+    position: relative;
+    display: block;
+    width: 100%;
+}
+.typography-line span{
+    bottom: 10px;
+    color: #c0c1c2;
+    display: block;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 13px;
+    left: 0;
+    position: absolute;
+    width: 260px;
+    text-transform: none;
+}
+.tim-row{
+    padding-top: 60px;
+}
+.tim-row h3{
+    margin-top: 0;
+}
+
+.offline-doc .page-header{
+  display: flex;
+  align-items: center;
+}
+
+.offline-doc .footer{
+  position: absolute;
+  width: 100%;
+  background: transparent;
+  bottom: 0;
+  color: #fff;
+  z-index: 1;
+}
+
+.tim-typo{
+    padding-left: 25%;
+    margin-bottom: 40px;
+    position: relative;
+    width: 100%;
+}
+.tim-typo .tim-note{
+    bottom: 5px;
+    color: #c0c1c2;
+    display: block;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 15px;
+    left: 0;
+    margin-left: 20px;
+    position: absolute;
+    width: 260px;
+}
+.bg-section-gral{
+     background-size: cover; background-position: top center; width: 100%; height: calc(100vh);position: fixed;top: 0;left: 0;
+}
+
+#totalFacturaSinFirma.translate{
+    transform: translateY(6px);
+}
+
+#totalFacturaSinFirma.translate i{
+    margin:0;
+}
