@@ -260,7 +260,7 @@ function printHtml(html) {
 function printPazSalvo(doc, fecha, cliente, nomcli, almacen) {
     $('#impresora').html('');
 
-    var html = '<div style="font-family: Arial, sans-serif; font-size: 11px;width: 302px;">' +
+    var html = '<div style="font-family: Arial, sans-serif; font-size: 10px;width: 302px;">' +
         '<h1 align="center" style="font-size: 15px;">CONFE S.A.S.</h1>' +
         '<p align="center">' + fecha + '</p>' +
         '<h1 align="center" style="font-size: 15px;">PAZ Y SALVO</h1>' +
@@ -418,9 +418,9 @@ function printInvoiceLetter(number, ignorePreload) {
             let valIvaFia = info_detail.ValIvaFia.split(';');
             let codeudor = (!_.isNull(info_fact.codeudor1) && !_.isNull(info_fact.nom_cod)) ? info_fact.codeudor1.trim() + '-' + info_fact.nom_cod.trim() : '';
 
-            var outputHtml = '<div style="width:13.98cm; margin:25px;">'+
-            '<div style="border:1px solid; display:inline-block; font-family: "Arial", sans-serif; line-heigth:10px; font-size: 11px;width:13.98cm;">' + 
-            '<h3 style="background-color:#ccc;text-align: center;width:13.98cm;margin: 0 auto;">Nuestra razón social cambió a partir de 27-NOV-2019 por Confe S.A.S</h3>'+
+            var outputHtml = '<div style="width:auto;">'+
+            '<div style="border:1px solid; display:inline-block; margin:0 auto; font-family: Arial; line-heigth:9px; font-size: 10px;width:12cm;">' + 
+            '<h3 style="background-color:#ccc;text-align: center;width:12cm;margin: 0 auto;">Nuestra razón social cambió a partir de 27-NOV-2019 por Confe S.A.S</h3>'+
             '<div style="text-align: center; display: block;">'+
             '<p style="text-align: left;">'+ info_fact.vendedor + "  " +  info_fact.nom_ven +'</p>' + 
             '<h2 style="text-align: center">'+ info_fact.nom_tip +  '</h2>' + 
@@ -428,21 +428,21 @@ function printInvoiceLetter(number, ignorePreload) {
             '</div>' + 
 
             '<div style="text-align: right; display: block;">' + 
-            '<p style="text-align: right;">Page 1 de 1</p>	' + 
-            '<p style="text-align: right;">' + info_fact.FechaHora.trim()  + '</p>' + 
+            '<p style="text-align: right; margin:0;">Page 1 de 1</p>	' + 
+            '<p style="text-align: right; margin:0;">' + info_fact.FechaHora.trim()  + '</p>' + 
             '</div>' +
             '<div style="display: block;">' + 
-            '<p style="text-align: left;display: inline-block;width: 6.95cm;">CUENTA CORRIENTE</p>' + 
-            '<p style="text-align: right;right: 0;display: inline-block;">REIMPRESO</p>' + 
+            '<p style="text-align: margin:0; left;display: inline-block;width: 6.95cm;">CUENTA CORRIENTE</p>' + 
+            '<p style="text-align: margin:0; right;right: 0;display: inline-block;">REIMPRESO</p>' + 
             '</div>' + 
-            '<p>Cliente:'+ info_fact.cliente + " " + info_fact.nom_cli + '</p>' +
-            '<p>Elaboro:'+ info_fact.nom_ven + '</p>'+
+            '<p style="margin:0;">Cliente:'+ info_fact.cliente + " " + info_fact.nom_cli + '</p>' +
+            '<p style="margin:0;">Elaboro:'+ info_fact.nom_ven + '</p>'+
             '<div style="width: 398px;padding: 0px 0;display: inline-block;margin-right: 6.95cm;">' + 
-            '<h4 style="background-color:#ccc;text-align: left;">Cupo Disponible' + info_fact.cup_cli + '</h4>' + 
+            '<h4 style="background-color:#ccc;text-align: left; width:6cm;">Cupo Disponible' + info_fact.cup_cli + '</h4>' + 
             '</div>' + 
             '<span style="text-align: right;position: relative;">Para su uso debe estar al día </span>' + 
-            '<p>Aplica restricciones para primeros creditos con codeudor</p>'+
-            '<table style="width:13.98cm;">'+ 
+            '<p style="margin:0;">Aplica restricciones para primeros creditos con codeudor</p>'+
+            '<table style="width:12cm;  font-size: 10px">'+ 
             '<thead>' +
             '<tr>'+
                 '<th>Documento</th>' +
@@ -473,33 +473,34 @@ function printInvoiceLetter(number, ignorePreload) {
 
             outputHtml += '</tbody></table>'
 
-            outputHtml += '<hr><hr>';
+            outputHtml += '<hr><br/><hr>';
 
             outputHtml += '<strong style="text-align: left;">Observaciones:</strong>'+
             '<h4 style="text-align: right;">Valor Recaudo:'  + info_fact.val_tot + '</h4>' + 
-            '<table>' + 
-            '<tr>' +
-                '<td style="width: 11cm;"><p style="text-align: left;">PAGO CREADO AUTOMATICAMENTE</p></td>' + 
-                '<td >Interes Mora   0</td> ' + 
-            '</tr>' + 
-            '<tr>' +
-            '<td><strong>Tasa de interes monetario diario</strong><span> ' +  info_fact.tasa_ea +'</span></td>'+ 
-            '<td>Iva Mora   0</td>' +            
-            '</tr>' + 
+            '<table style="width:12cm;  font-size: 10px">' + 
+                '<tr>' +
+                    '<td style="width: 9cm;"><p style="text-align: left;">PAGO CREADO AUTOMATICAMENTE</p></td>' + 
+                    '<td >Interes Mora   0</td> ' + 
+                '</tr>' + 
+                '<tr>' +
+                '<td><strong>Tasa de interes monetario diario</strong><span> ' +  info_fact.tasa_ea +'</span></td>'+ 
+                '<td>Iva Mora   0</td>' +            
+                '</tr>' + 
             '</table>' +            
             '<h4>GRACAS POR SU PAGO</h4>'+
-            '<p>RECUERDE QUE ES IMPORTANTE MANTENER SU PAGO AL DÍA</p>'+
+            '<p style="margin:0;">RECUERDE QUE ES IMPORTANTE MANTENER SU PAGO AL DÍA</p>'+
             '<div style="display: inline-block;">'+
                 '<div style="text-align:left;display: inline-block;width: 6.95cm;">' + 
-                    '<p>Saldo Capital'+ '0' + '</p>' + 
-                    '<p>Saldo Interes'+ '0' + '</p>' + 
+                    '<p style="margin:0;">Saldo Capital'+ '0' + '</p>' + 
+                    '<p style="margin:0;">Saldo Interes'+ '0' + '</p>' + 
                     '<div style="text-align: right;display: inline-block;">' + 
-                    '<p>N.C Pago Anticipado 2.589</p>' + 
-                    '<p>Total recibido' + info_fact.recibido + '</p>' +
-                '<div>' + 
+                    '<p style="margin:0;">N.C Pago Anticipado 2.589</p>' + 
+                    '<p style="margin:0;">Total recibido' + info_fact.recibido + '</p>' +
+                    '</div>' + 
+                '</div>' + 
             '</div>'+
-            '<p style="text-align: right;">EFECTIVO:' + info_fact.val_uni + '</p>' + 
-            '<table>'+
+            '<p style="text-align: right; margin:0;">EFECTIVO:' + info_fact.val_uni + '</p>' + 
+            '<table style="width:12cm;  font-size: 10px">'+
             '<tr>' + 
                 '<td>Capital + Interes</td>'+
                 '<td>0</td>' +                
@@ -509,13 +510,102 @@ function printInvoiceLetter(number, ignorePreload) {
             '<td>621</td>' + 
             '</tr>' +
             '</table>'+
-            '<p style="text-align: center">Usuario: '+ info_fact.usuario + ', Base de Datos:' + 'EXTNOVA' + '</p></div>'; // END TABLE 1
+            '<p style="text-align: center; margin:0;">Usuario: '+ info_fact.usuario + ', Base de Datos:' + 'EXTNOVA' + '</p></div>'; // END TABLE 1
 
             // START TABLE 2
-            //outputHtml +=  
+            outputHtml +=   '<div style="border:1px solid; display:inline-block; margin:0 auto; font-family: Arial; line-heigth:9px; font-size: 10px;width:12cm;">' + 
+            '<h3 style="background-color:#ccc;text-align: center;width:12cm;margin: 0 auto;">Nuestra razón social cambió a partir de 27-NOV-2019 por Confe S.A.S</h3>'+
+            '<div style="text-align: center; display: block;">'+
+            '<p style="text-align: left;">'+ info_fact.vendedor + "  " +  info_fact.nom_ven +'</p>' + 
+            '<h2 style="text-align: center">'+ info_fact.nom_tip +  '</h2>' + 
+            '<h3>No'+ info_fact.num_pagare + '</h3>' + 
+            '</div>' + 
 
+            '<div style="text-align: right; display: block;">' + 
+            '<p style="text-align: right; margin:0;">Page 1 de 1</p>	' + 
+            '<p style="text-align: right; margin:0;">' + info_fact.FechaHora.trim()  + '</p>' + 
+            '</div>' +
+            '<div style="display: block;">' + 
+            '<p style="text-align: margin:0; left;display: inline-block;width: 6.95cm;">CUENTA CORRIENTE</p>' + 
+            '<p style="text-align: margin:0; right;right: 0;display: inline-block;">REIMPRESO</p>' + 
+            '</div>' + 
+            '<p style="margin:0;">Cliente:'+ info_fact.cliente + " " + info_fact.nom_cli + '</p>' +
+            '<p style="margin:0;">Elaboro:'+ info_fact.nom_ven + '</p>'+
+            '<div style="width: 398px;padding: 0px 0;display: inline-block;margin-right: 6.95cm;">' + 
+            '<h4 style="background-color:#ccc;text-align: left; width:6cm;">Cupo Disponible' + info_fact.cup_cli + '</h4>' + 
+            '</div>' + 
+            '<span style="text-align: right;position: relative;">Para su uso debe estar al día </span>' + 
+            '<p style="margin:0;">Aplica restricciones para primeros creditos con codeudor</p>'+
+            '<table style="width:12cm;  font-size: 10px">'+ 
+            '<thead>' +
+            '<tr>'+
+                '<th>Documento</th>' +
+				'<th>Fecha</th>' + 
+                '<th>Cuota</th>' + 
+                '<th>Vr Cuota</th>' +
+                '<th>Vr Capital</th>' +
+                '<th>Vr. Int. Cte</th>' +
+                '<th>Vr. Fianza</th>' +
+                '<th>Vr.int.Mora</th>' +
+                '<th>Vr Total</th>' +
+            '</tr>' +
+            '</thead>' + 
+            '<tbody>';
+            for (k in cuotas) {
+                outputHtml += '<tr>' +
+                    '<td align="center">' + info_fact.cliente + '</td>' +
+                    '<td>$' + info_fact.FechaHora.trim() + '</td>' +
+                    '<td>' +  cuotas[k]  + '</td>' +
+                    '<td>$' + valorCuota[k] + '</td>' +
+                    '<td>$' + info_detail.VTCap + '</td>' +
+                    '<td>$' + valInt[k] + '</td>' +
+                    '<td>$' + valFianza[k] + '</td>' +
+                    '<td>$' + info_detail.VTInteres + '</td>' +
+                    '<td>' + info_detail.ValorTotal + '</td>' +
+                    '</tr>';
+            }
 
-            outputHtml += '</div>';
+            outputHtml += '</tbody></table>'
+
+            outputHtml += '<hr><br/><hr>';
+
+            outputHtml += '<strong style="text-align: left;">Observaciones:</strong>'+
+            '<h4 style="text-align: right;">Valor Recaudo:'  + info_fact.val_tot + '</h4>' + 
+            '<table style="width:12cm;  font-size: 10px">' + 
+                '<tr>' +
+                    '<td style="width: 9cm;"><p style="text-align: left;">PAGO CREADO AUTOMATICAMENTE</p></td>' + 
+                    '<td >Interes Mora   0</td> ' + 
+                '</tr>' + 
+                '<tr>' +
+                '<td><strong>Tasa de interes monetario diario</strong><span> ' +  info_fact.tasa_ea +'</span></td>'+ 
+                '<td>Iva Mora   0</td>' +            
+                '</tr>' + 
+            '</table>' +            
+            '<h4>GRACAS POR SU PAGO</h4>'+
+            '<p style="margin:0;">RECUERDE QUE ES IMPORTANTE MANTENER SU PAGO AL DÍA</p>'+
+            '<div style="display: inline-block;">'+
+                '<div style="text-align:left;display: inline-block;width: 6.95cm;">' + 
+                    '<p style="margin:0;">Saldo Capital'+ '0' + '</p>' + 
+                    '<p style="margin:0;">Saldo Interes'+ '0' + '</p>' + 
+                    '<div style="text-align: right;display: inline-block;">' + 
+                    '<p style="margin:0;">N.C Pago Anticipado 2.589</p>' + 
+                    '<p style="margin:0;">Total recibido' + info_fact.recibido + '</p>' +
+                    '</div>' + 
+                '</div>' + 
+            '</div>'+
+            '<p style="text-align: right; margin:0;">EFECTIVO:' + info_fact.val_uni + '</p>' + 
+            '<table style="width:12cm;  font-size: 10px">'+
+            '<tr>' + 
+                '<td>Capital + Interes</td>'+
+                '<td>0</td>' +                
+            '</tr>' +
+            '<tr>' + 
+            '<td>Cambio</td>' + 
+            '<td>621</td>' + 
+            '</tr>' +
+            '</table>'+
+            '<p style="text-align: center; margin:0;">Usuario: '+ info_fact.usuario + ', Base de Datos:' + 'EXTNOVA' + '</p></div></div>';
+           
 
             
             // var outputHtml = '<div style="font-family: Arial, sans-serif; font-size: 12px;width: 21cm;">' +
@@ -542,7 +632,7 @@ function printInvoiceLetter(number, ignorePreload) {
             //     '<b>Vendedor:</b> ' + info_fact.nom_ven.trim() + '<br/>' +
             //     '</p>' +
             //     '<p><b style="background-color:#ddd; font-size: 13px;padding: 2px;">Cupo Disponible ' + numeral(info_fact.cup_cli).format('$0,000') + '</b> (Para su uso debe estar al día)</p>' +
-            //     '<table width="100%" style="font-size: 11px">' +
+            //     '<table width="100%" style="font-size: 10px">' +
             //     '<tr>' +
             //     '<td>Capital: ' + numeral(info_fact.vr_cre + info_detail.biodata).format('$0,000') + '</td>' +
             //     '<td>Interés: ' + numeral(info_fact.finan).format('$0,000') + '</td>' +
@@ -560,7 +650,7 @@ function printInvoiceLetter(number, ignorePreload) {
             //     var ivaFianza = info_fact.fianpag - valorFianza;
             //     outputHtml += '<p style="text-align: center;background-color:#ddd;"><b style="font-size: 13px;padding: 2px;">Crédito Afianzado por:<br/>GARANTIAS CREDITICIAS S.A.S. 900.906.654<br/>(Ingresos Recibidos para Terceros)</b></p>' +
             //         '<p>Crédito otorgado por Credimarcas.<br/><span style="font-size: 10px;">Factura impresa por computador (Novasoft S.A.S)</p>' +
-            //         '<table style="font-size: 11px; width: 100%;">' +
+            //         '<table style="font-size: 10px; width: 100%;">' +
             //         '<tr><td><b>Valor Fianza:</b></td><td>' + numeral(valorFianza).format('$0,000') + '</td></tr>' +
             //         '<tr><td><b>IVA Fianza:</b></td><td>' + numeral(ivaFianza).format('$0,000') + '</td></tr>' +
             //         '<tr><td><b>Total Fianza Pagada:</b></td><td>' + numeral(info_fact.fianpag).format('$0,000') + '</td></tr>' +
@@ -673,7 +763,7 @@ function printInvoice(number, ignorePreload) {
             var valIvaFia = data_det.ValIvaFia.split(';');
             var codeudor = (!_.isNull(data_fac.codeudor1) && !_.isNull(data_fac.nom_cod)) ? data_fac.codeudor1.trim() + '-' + data_fac.nom_cod.trim() : '';
 
-            var html = '<div style="font-family: Arial, sans-serif; font-size: 11px;width: 302px;">' +
+            var html = '<div style="font-family: Arial, sans-serif; font-size: 10px;width: 302px;">' +
                 '<h1 align="center" style="font-size: 15px;">CONFE S.A.S.</h1>' +
                 '<p align="center">Nit: 800097373-0' +
                 '<br/>Cra 49 49 - 73 Piso:3 Tel: 4486564' +
@@ -696,8 +786,8 @@ function printInvoice(number, ignorePreload) {
                 '<b>Almacén:</b> ' + data_fac.nom_cco.trim() + '<br/>' +
                 '<b>Vendedor:</b> ' + data_fac.nom_ven.trim() + '<br/>' +
                 '</p>' +
-                '<p><b style="background-color:#ddd; font-size: 13px;padding: 2px;">Cupo Disponible ' + numeral(data_fac.cup_cli).format('$0,000') + '</b> (Para su uso debe estar al día)</p>' +
-                '<table width="100%" style="font-size: 11px">' +
+                '<p><b style="background-color:#ddd; font-size: 12px;padding: 2px;">Cupo Disponible ' + numeral(data_fac.cup_cli).format('$0,000') + '</b> (Para su uso debe estar al día)</p>' +
+                '<table width="100%" style="font-size: 10px">' +
                 '<tr>' +
                 '<td>Capital: ' + numeral(data_fac.vr_cre + data_det.biodata).format('$0,000') + '</td>' +
                 '<td>Interés: ' + numeral(data_fac.finan).format('$0,000') + '</td>' +
@@ -715,7 +805,7 @@ function printInvoice(number, ignorePreload) {
                 var ivaFianza = data_fac.fianpag - valorFianza;
                 html += '<p style="text-align: center;background-color:#ddd;"><b style="font-size: 13px;padding: 2px;">Crédito Afianzado por:<br/>GARANTIAS CREDITICIAS S.A.S. 900.906.654<br/>(Ingresos Recibidos para Terceros)</b></p>' +
                     '<p>Crédito otorgado por Credimarcas.<br/><span style="font-size: 10px;">Factura impresa por computador (Novasoft S.A.S)</p>' +
-                    '<table style="font-size: 11px; width: 100%;">' +
+                    '<table style="font-size: 10px; width: 100%;">' +
                     '<tr><td><b>Valor Fianza:</b></td><td>' + numeral(valorFianza).format('$0,000') + '</td></tr>' +
                     '<tr><td><b>IVA Fianza:</b></td><td>' + numeral(ivaFianza).format('$0,000') + '</td></tr>' +
                     '<tr><td><b>Total Fianza Pagada:</b></td><td>' + numeral(data_fac.fianpag).format('$0,000') + '</td></tr>' +
@@ -726,15 +816,15 @@ function printInvoice(number, ignorePreload) {
             if (data_det.biodata > 0) {
                 var valorBiodata = parseInt(data_det.biodata) / 1.19;
                 var ivaBiodata = data_det.biodata - valorBiodata;
-                html += '<br/><p style="text-align: center;background-color:#ddd;"><b style="font-size: 13px;padding: 2px;">Ingresos Recibidos Para Terceros:<br/>900.884.021 PROTECDATA S.A.</b></p>' +
-                    '<table style="font-size: 11px; width: 100%;">' +
+                html += '<br/><p style="text-align: center;background-color:#ddd;"><b style="font-size: 12px;padding: 2px;">Ingresos Recibidos Para Terceros:<br/>900.884.021 PROTECDATA S.A.</b></p>' +
+                    '<table style="font-size: 10px; width: 100%;">' +
                     '<tr><td><b>Valor BioData:</b></td><td>' + numeral(valorBiodata).format('$0,000') + '</td></tr>' +
                     '<tr><td><b>IVA BioData:</b></td><td>' + numeral(ivaBiodata).format('$0,000') + '</td></tr>' +
                     '<tr><td><b>Total BioData:</b></td><td>' + numeral(data_det.biodata).format('$0,000') + '</td></tr>' +
                     '</table><br/>';
             }
 
-            html += '<table style="font-size: 11px">' +
+            html += '<table style="font-size: 10px">' +
                 '<tr>' +
                 '<th width="50px">Cuota</th>' +
                 '<th width="70px" align="left">Vr Cuota</th>' +
@@ -750,7 +840,7 @@ function printInvoice(number, ignorePreload) {
             html += '</table>' +
                 '<p>Total Vr Financiado: ' + numeral(data_det.ValorTotal).format('$0,000') + '</br>' +
                 '<br/>' +
-                '<table style="font-size: 11px">' +
+                '<table style="font-size: 10px">' +
                 '<tr>' +
                 '<th width="50px">Cuota</th>' +
                 '<th width="50px" align="left">Capital</th>' +
@@ -1053,7 +1143,7 @@ function printPayment(number, ignorePreload) {
             var tbl_ven = response.data[4][0].prox_fecven.split(';');
             var tbl_val = response.data[4][0].Val_obl.split(';');
 
-            var html = '<div style="font-family: Arial, sans-serif; font-size: 11px;width: 302px;">' +
+            var html = '<div style="font-family: Arial, sans-serif; font-size: 10px;width: 302px;">' +
                 '<h1 align="center" style="font-size: 15px;">CONFE S.A.S.</h1>' +
                 '<p align="center">Nit: 800097373-0' +
                 '<br/>Cra 49 49 - 73 Piso:3 Tel: 4486564' +
@@ -1076,7 +1166,7 @@ function printPayment(number, ignorePreload) {
                 '</p>' +
                 '</table>' +
                 '<br/>' +
-                '<table style="font-size: 11px">' +
+                '<table style="font-size: 10px">' +
                 '<tr><td colspan="5" style="border-bottom:2px solid #000;"></td></tr>' +
                 '<tr>' +
                 '<th width="65px">Documento</th>' +
@@ -1096,7 +1186,7 @@ function printPayment(number, ignorePreload) {
                     '</tr>';
             }
             html += '</table><br/>' +
-                '<table style="font-size: 11px">' +
+                '<table style="font-size: 10px">' +
                 '<tr><td colspan="5" style="border-bottom:2px solid #000;"></td></tr>' +
                 '<tr>' +
                 '<th width="80px">Vr. Int. Cte</th>' +
@@ -1125,7 +1215,7 @@ function printPayment(number, ignorePreload) {
             }
 
             html += '</table><br/>' +
-                '<table style="font-size: 11px; width:100%;">' +
+                '<table style="font-size: 10px; width:100%;">' +
                 '<tr><td><b style="font-size:13px;">Vr.Recaudo</b></td><td><b style="font-size:13px;">' + numeral(vr_recaudo).format('$0,000') + '</b></td></tr>' +
                 '<tr><td>Interés Mora ' + numeral(interes_mora).format('$0,000') + '</td><td>Iva Mora $0</td></tr>' +
                 '<tr><td colspan="2">&nbsp;</td></tr>' +
@@ -1143,7 +1233,7 @@ function printPayment(number, ignorePreload) {
                 '<p style="text-align:center;font-size:12px;font-weight:bold">GRACIAS POR SU PAGO</p>' +
                 '<p style="text-align:center;">RECUERDE QUE ES IMPORTANTE MANTENER<br/>SU CRÉDITO AL DÍA</p><br/>' +
                 '<b style="background-color:#ddd; font-size: 13px;padding: 2px;width:100%;text-align:center;display:block;">PRÓXIMOS PAGOS</b><br/>' +
-                '<table style="font-size: 11px; width:100%;">' +
+                '<table style="font-size: 10px; width:100%;">' +
                 '<tr>' +
                 '<th style="text-align: left;">Documento</th>' +
                 '<th style="text-align: left;">Fecha</th>' +
@@ -1160,7 +1250,7 @@ function printPayment(number, ignorePreload) {
 
             if (hasDiscount) {
                 html += '<br/><b style="background-color:#ddd; font-size: 13px;padding: 2px;width:100%;text-align:center;display:block;">DESCUENTOS APLICADOS</b><br/>' +
-                    '<table style="font-size: 11px; width:100%;">' +
+                    '<table style="font-size: 10px; width:100%;">' +
                     '<tr><td colspan="4" style="border-bottom:2px solid #000;"></td></tr>' +
                     '<tr>' +
                     '<th style="text-align: left;">Documento</th>' +
@@ -1181,7 +1271,7 @@ function printPayment(number, ignorePreload) {
                     }
                 }
 
-                html += '</table><table style="font-size: 11px; width:100%;">' +
+                html += '</table><table style="font-size: 10px; width:100%;">' +
                     '<tr><td colspan="4" style="border-bottom:2px solid #000;"></td></tr>' +
                     '<tr>' +
                     '<th style="text-align: left;">Documento</th>' +
