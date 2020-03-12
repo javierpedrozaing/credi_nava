@@ -418,7 +418,9 @@ function printInvoiceLetter(number, ignorePreload) {
             let valIvaFia = info_detail.ValIvaFia.split(';');
             let codeudor = (!_.isNull(info_fact.codeudor1) && !_.isNull(info_fact.nom_cod)) ? info_fact.codeudor1.trim() + '-' + info_fact.nom_cod.trim() : '';
 
-            var outputHtml = '<div style="width:auto;">'+
+
+            ////////////////////////// //// START FORMAT PAGARE //////////////////////////
+            var outputHtmlRecibo = '<div style="width:auto;">'+
             '<div style="border:1px solid; display:inline-block; margin:0 auto; font-family: Arial; line-heigth:9px; font-size: 10px;width:12cm;">' + 
             '<h3 style="background-color:#ccc;text-align: center;width:12cm;margin: 0 auto;">Nuestra razón social cambió a partir de 27-NOV-2019 por Confe S.A.S</h3>'+
             '<div style="text-align: center; display: block;">'+
@@ -441,8 +443,9 @@ function printInvoiceLetter(number, ignorePreload) {
             '<h4 style="background-color:#ccc;text-align: left; width:6cm;">Cupo Disponible' + info_fact.cup_cli + '</h4>' + 
             '</div>' + 
             '<span style="text-align: right;position: relative;">Para su uso debe estar al día </span>' + 
-            '<p style="margin:0;">Aplica restricciones para primeros creditos con codeudor</p>'+
-            '<table style="width:12cm;  font-size: 10px">'+ 
+            '<p style="margin:0;">Aplica restricciones para primeros creditos con codeudor</p>';
+
+            outputHtmlRecibo += '<table style="width:12cm;  font-size: 10px">'+ 
             '<thead>' +
             '<tr>'+
                 '<th>Documento</th>' +
@@ -458,7 +461,7 @@ function printInvoiceLetter(number, ignorePreload) {
             '</thead>' + 
             '<tbody>';
             for (k in cuotas) {
-                outputHtml += '<tr>' +
+                outputHtmlRecibo += '<tr>' +
                     '<td align="center">' + info_fact.cliente + '</td>' +
                     '<td>$' + info_fact.FechaHora.trim() + '</td>' +
                     '<td>' +  cuotas[k]  + '</td>' +
@@ -471,11 +474,11 @@ function printInvoiceLetter(number, ignorePreload) {
                     '</tr>';
             }
 
-            outputHtml += '</tbody></table>'
+            outputHtmlRecibo += '</tbody></table>'
 
-            outputHtml += '<hr><br/><hr>';
+            outputHtmlRecibo += '<hr><br/><hr>';
 
-            outputHtml += '<strong style="text-align: left;">Observaciones:</strong>'+
+            outputHtmlRecibo += '<strong style="text-align: left;">Observaciones:</strong>'+
             '<h4 style="text-align: right;">Valor Recaudo:'  + info_fact.val_tot + '</h4>' + 
             '<table style="width:12cm;  font-size: 10px">' + 
                 '<tr>' +
@@ -513,7 +516,7 @@ function printInvoiceLetter(number, ignorePreload) {
             '<p style="text-align: center; margin:0;">Usuario: '+ info_fact.usuario + ', Base de Datos:' + 'EXTNOVA' + '</p></div>'; // END TABLE 1
 
             // START TABLE 2
-            outputHtml +=   '<div style="border:1px solid; display:inline-block; margin:0 auto; font-family: Arial; line-heigth:9px; font-size: 10px;width:12cm;">' + 
+            outputHtmlRecibo +=   '<div style="border:1px solid; display:inline-block; margin-left:0.5cm; font-family: Arial; line-heigth:9px; font-size: 10px;width:12cm;">' + 
             '<h3 style="background-color:#ccc;text-align: center;width:12cm;margin: 0 auto;">Nuestra razón social cambió a partir de 27-NOV-2019 por Confe S.A.S</h3>'+
             '<div style="text-align: center; display: block;">'+
             '<p style="text-align: left;">'+ info_fact.vendedor + "  " +  info_fact.nom_ven +'</p>' + 
@@ -552,7 +555,7 @@ function printInvoiceLetter(number, ignorePreload) {
             '</thead>' + 
             '<tbody>';
             for (k in cuotas) {
-                outputHtml += '<tr>' +
+                outputHtmlRecibo += '<tr>' +
                     '<td align="center">' + info_fact.cliente + '</td>' +
                     '<td>$' + info_fact.FechaHora.trim() + '</td>' +
                     '<td>' +  cuotas[k]  + '</td>' +
@@ -565,11 +568,11 @@ function printInvoiceLetter(number, ignorePreload) {
                     '</tr>';
             }
 
-            outputHtml += '</tbody></table>'
+            outputHtmlRecibo += '</tbody></table>'
 
-            outputHtml += '<hr><br/><hr>';
+            outputHtmlRecibo += '<hr><br/><hr>';
 
-            outputHtml += '<strong style="text-align: left;">Observaciones:</strong>'+
+            outputHtmlRecibo += '<strong style="text-align: left;">Observaciones:</strong>'+
             '<h4 style="text-align: right;">Valor Recaudo:'  + info_fact.val_tot + '</h4>' + 
             '<table style="width:12cm;  font-size: 10px">' + 
                 '<tr>' +
@@ -605,121 +608,17 @@ function printInvoiceLetter(number, ignorePreload) {
             '</tr>' +
             '</table>'+
             '<p style="text-align: center; margin:0;">Usuario: '+ info_fact.usuario + ', Base de Datos:' + 'EXTNOVA' + '</p></div></div>';
-           
+           ////////////////////////// //// FIN FORMAT PAGARE //////////////////////////
 
             
-            // var outputHtml = '<div style="font-family: Arial, sans-serif; font-size: 12px;width: 21cm;">' +
-            //     '<h1 align="center" style="font-size: 15px;">CONFE S.A.S.</h1>' +
-            //     '<p align="center">Nit: 800097373-0' +
-            //     '<br/>Cra 49 49 - 73 Piso:3 Tel: 4486564' +
-            //     '<br/><b>Credimarcas</b>' +
-            //     '</p>' +
-            //     '<p align="center"><b>Pagaré de venta: No. ' + number + '</b></p>' +
-            //     '<p>' +
-            //     '<b>Forma de pago:</b>' + info_fact.descrip_cuo.trim() + '<br/>' +
-            //     '<b>Fecha:</b>' + info_fact.FechaHora.trim() + '<br/>' +
-            //     '<b>Fecha Vence:</b>' + fecVen[fecVen.length - 1] + '<br/>' +
-            //     '<b>Huella: </b>' + info_fact.con_huella + '<br/>' +
-            //     '</p>' +
-            //     '<p>' +
-            //     '<b>Deudor:</b> ' + info_fact.cliente.trim() + '<br/>' +
-            //     info_fact.nom_cli.trim() + '<br/>' +
-            //     '<b>Dirección:</b> ' + info_fact.dir_cli.trim() + '<br/>' +
-            //     '<b>Correo:</b> ' + info_fact.e_mail_cli.trim() + '<br/>' +
-            //     '<b>Codeudor:</b> ' + codeudor + '<br/>' +
-            //     '<b>Documento:</b> ' + info_detail.num_pagare.trim() + '<br/>' +
-            //     '<b>Almacén:</b> ' + info_fact.nom_cco.trim() + '<br/>' +
-            //     '<b>Vendedor:</b> ' + info_fact.nom_ven.trim() + '<br/>' +
-            //     '</p>' +
-            //     '<p><b style="background-color:#ddd; font-size: 13px;padding: 2px;">Cupo Disponible ' + numeral(info_fact.cup_cli).format('$0,000') + '</b> (Para su uso debe estar al día)</p>' +
-            //     '<table width="100%" style="font-size: 10px">' +
-            //     '<tr>' +
-            //     '<td>Capital: ' + numeral(info_fact.vr_cre + info_detail.biodata).format('$0,000') + '</td>' +
-            //     '<td>Interés: ' + numeral(info_fact.finan).format('$0,000') + '</td>' +
-            //     '<td>(' + info_fact.tasa_int.toString().match(/^-?\d+(?:\.\d{0,2})?/)[0] + ') ' + ((info_fact.tipo_credito == '01') ? 'Quincenal' : 'Mensual') + '</td>' +
-            //     '</tr>' +
-            //     '<tr>' +
-            //     '<td>Fianza: ' + numeral(info_fact.aval).format('$0,000') + ' (' + info_fact.por_aval + '%)</td>' +
-            //     '<td colspan="2">Iva Fianza: ' + numeral(info_fact.iva_aval).format('$0,000') + '</td>' +
-            //     '</tr>' +
-            //     '</table>' +
-            //     '<p>Tasa Max Legal Vig (' + numeral(info_fact.tasa_max).format('0,000.00') + ')<br/>Tasa E.A ' + numeral(info_fact.tasa_ea).format('0,000.00') + ' de acuerdo al siguiente plan de amortización</p>';
+           var outputHtmlPagare = " - ";
 
-            // if (info_fact.mod_liq == 2 && info_fact.fianpag > 0) {
-            //     var valorFianza = parseInt(info_fact.fianpag) / 1.19;
-            //     var ivaFianza = info_fact.fianpag - valorFianza;
-            //     outputHtml += '<p style="text-align: center;background-color:#ddd;"><b style="font-size: 13px;padding: 2px;">Crédito Afianzado por:<br/>GARANTIAS CREDITICIAS S.A.S. 900.906.654<br/>(Ingresos Recibidos para Terceros)</b></p>' +
-            //         '<p>Crédito otorgado por Credimarcas.<br/><span style="font-size: 10px;">Factura impresa por computador (Novasoft S.A.S)</p>' +
-            //         '<table style="font-size: 10px; width: 100%;">' +
-            //         '<tr><td><b>Valor Fianza:</b></td><td>' + numeral(valorFianza).format('$0,000') + '</td></tr>' +
-            //         '<tr><td><b>IVA Fianza:</b></td><td>' + numeral(ivaFianza).format('$0,000') + '</td></tr>' +
-            //         '<tr><td><b>Total Fianza Pagada:</b></td><td>' + numeral(info_fact.fianpag).format('$0,000') + '</td></tr>' +
-            //         '<tr><td><b>Total a Financiar:</b></td><td>' + numeral(info_fact.val_tot).format('$0,000') + '</td></tr>' +
-            //         '</table><br/>';
-            // }
-
-            // if (info_detail.biodata > 0) {
-            //     var valorBiodata = parseInt(info_detail.biodata) / 1.19;
-            //     var ivaBiodata = info_detail.biodata - valorBiodata;
-            //     outputHtml += '<br/><p style="text-align: center;background-color:#ddd;"><b style="font-size: 13px;padding: 2px;">Ingresos Recibidos Para Terceros:<br/>900.884.021 PROTECDATA S.A.</b></p>' +
-            //         '<table style="font-size: 12px; width: 100%;">' +
-            //         '<tr><td><b>Valor BioData:</b></td><td>' + numeral(valorBiodata).format('$0,000') + '</td></tr>' +
-            //         '<tr><td><b>IVA BioData:</b></td><td>' + numeral(ivaBiodata).format('$0,000') + '</td></tr>' +
-            //         '<tr><td><b>Total BioData:</b></td><td>' + numeral(info_detail.biodata).format('$0,000') + '</td></tr>' +
-            //         '</table><br/>';
-            // }
-
-            // outputHtml += '<table><tr><td style="border:1px solid #ccc; padding:10px 20px;"><table style="font-size: 12px">' +
-            //     '<tr>' +
-            //     '<th width="50px">Cuota</th>' +
-            //     '<th width="70px" align="left">Vr Cuota</th>' +
-            //     '<th>Vencimiento</th>' +
-            //     '</tr>';
-            // for (k in cuotas) {
-            //     outputHtml += '<tr>' +
-            //         '<td align="center">' + cuotas[k] + '</td>' +
-            //         '<td>$' + valorCuota[k] + '</td>' +
-            //         '<td>' + fecVen[k] + '</td>' +
-            //         '</tr>';
-            // }
-            // outputHtml += '</table></td>' +
-            //     '<p>Total Vr Financiado: ' + numeral(info_detail.ValorTotal).format('$0,000') + '</br>' +
-            //     '<br/>' +
-            //     '<td style="border:1px solid #ccc; padding:10px 20px;"><table style="font-size: 12px">' +
-            //     '<tr>' +
-            //     '<th width="50px">Cuota</th>' +
-            //     '<th width="50px" align="left">Capital</th>' +
-            //     '<th width="50px" align="left">Interés</th>' +
-            //     '<th width="50px" align="left">Fianza</th>' +
-            //     '<th width="60px" align="left">Iva Fianza</th>' +
-            //     '</tr>';
-            // for (k in cuotas) {
-            //     outputHtml += '<tr>' +
-            //         '<td align="center">' + cuotas[k] + '</td>' +
-            //         '<td>$' + valCap[k] + '</td>' +
-            //         '<td>$' + valInt[k] + '</td>' +
-            //         '<td>$' + valFianza[k] + '</td>' +
-            //         '<td>$' + valIvaFia[k] + '</td>' +
-            //         '</tr>';
-            // }
-            // outputHtml += '</table></td></tr><p><b>Discriminación de la cuota:</b></p></table>' +
-            //     '<br/>';
-
-            // if (info_fact.mod_liq != 2 || (info_fact.mod_liq == 2 && (_.isNull(info_fact.fianpag) || info_fact.fianpag == 0))) {
-            //     outputHtml += '<p style="background-color:#ddd;">' +
-            //         '<b style="font-size: 13px;padding: 2px;">' +
-            //         'Crédito Afianzado por:<br/>' +
-            //         'GARANTIAS CREDITICIAS S.A.S. - 900.906.654<br/>' +
-            //         '(Ingresos Recibidos para Terceros)' +
-            //         '</b>' +
-            //         '</p>';
-            // }
-
-            // outputHtml += '<p>Crédito otorgado por Credimarcas.<br/><span style="font-size: 10px;">Factura impresa por computador (Novasoft S.A.S)</p>' +
-            //     '</div>';
-
-
-                printHtml(outputHtml);
+            if (info_fact.nom_tip.trim() == "PAGARE DE VENTA") {
+                printHtml(outputHtmlPagare);
+            }else{
+                printHtml(outputHtmlRecibo);
+            }
+                
 
 
         } else {
