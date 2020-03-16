@@ -515,7 +515,7 @@ function printInvoiceLetter(number, ignorePreload) {
             '</table>'+
             '<p style="text-align: center; margin:0;">Usuario: '+ info_fact.usuario + ', Base de Datos:' + 'EXTNOVA' + '</p></div>'; // END TABLE 1
 
-            // START TABLE 2
+            // START COLUMN 2
             outputHtmlRecibo +=   '<div style="border:1px solid; display:inline-block; margin-left:0.5cm; font-family: Arial; line-heigth:9px; font-size: 10px;width:12cm;">' + 
             '<h3 style="background-color:#ccc;text-align: center;width:12cm;margin: 0 auto;">Nuestra razón social cambió a partir de 27-NOV-2019 por Confe S.A.S</h3>'+
             '<div style="text-align: center; display: block;">'+
@@ -611,7 +611,239 @@ function printInvoiceLetter(number, ignorePreload) {
            ////////////////////////// //// FIN FORMAT PAGARE //////////////////////////
 
             
-           var outputHtmlPagare = " - ";
+           var outputHtmlPagare = '<div style="width:auto; margin:5px;">' +
+           '<div style="border:1px solid; display:inline-block; font-family: "Arial", sans-serif; font-size: 12px;width:12cm; margin:0.2cm;">' +
+           '<h3 style="background-color:#ccc;text-align: center;width:12cm;margin: 0 auto;">Nuestra razón social cambió a partir de 27-NOV-2019 por Confe S.A.S</h3>' + 
+           '<div style="display: block; width: 12cm;">' + 
+                '<div style="text-align: center; margin: 0 auto;"> ' +
+                    '<div style="display: inline-block; width: 9cm;">' + 
+                        '<h2 style="text-align: center">' + info_fact.nom_tip + '</h2>'+
+                        '<h3>'+ info_fact.num_pagare +'</h3>' + 
+                    '</div>' +
+                    '<div style="display: inline-block;">' +
+                        '<p style="right: 0;display: inline-block;">REIMP</p>' + 
+                        '<p style="">Page 1 de 1</p>' +
+                    '</div>'+
+                '</div>' +
+                '<div style="text-align: left; display: inline-block; width: 6.5cm;">' +
+                    '<p>KOAJ #1 - PUERTA NORTE</p>' +
+                    '<p>Forma de pago:' + info_fact.descrip_cuo +'</p>' +
+                    '<p>Cliente: '+  info_fact.nom_cli +'</p>' +                
+                    '<p>Codeudor: ' + codeudor +'</p>' + 
+                    '<p>Vendedor: '+ info_fact.vendedor + " " + info_fact.nom_ven + ' </p>' +
+                '</div>' +
+                '<div style="display: inline-block; vertical-align: top;">' + 
+                    '<p style="text-align: right;">'+ info_fact.FechaHora + '</p>' +
+                    '<p style="text-align: right;">Documento: '+ info_fact.num_doc +'</p>' +
+                    '<div style="display: block;">' + 
+                        '<p style="display: inline-block; width: 3cm; font-weight: bold;"> Con Huella:</p>' + 
+                        '<p  style="background-color:#ccc; display: inline-block; padding:0 0.5cm;">'+ info_fact.con_huella +'</p >' + 
+                    '</div>' + 
+                    '<p>Elaboró: '+ info_fact.nom_ven +'</p>' + 
+                '</div>' + 
+            '</div>'+
+            '<div style="width: 12cm;padding: 0px 0;display: inline-block;">' + 
+                '<h4 style="text-align: left; display: inline-block; width:6.5cm;"><span style="background-color:#ccc; width:5cm; display: block;">Cupo disponible:'+ info_fact.cup_cli + '</span></h4>' +
+                '<span style="text-align: right;position: relative; display: inline-block;">Para su uso debe estar al día </span>' +
+            '</div>' +
+            '<p>Aplica restricciones para primeros creditos con codeudor</p>' +
+            '<table style="width:12cm;"></tr><thead><tr>' +
+                '<th>Código</th>' + 
+                '<th>Descripcción</th>' +
+                '<th>Iva</th>' +
+                '<th>Talla</th>' +
+                '<th>Desc</th>' +
+                '<th>Cant</th>' +
+                '<th>Vr. Unitario</th>' +
+                '<th>SubTotal</th>' +
+            '</tr></thead>'+ 
+            '<tbody>' + 
+                '<tr>' + 
+                    '<td> '+ info_fact.cod_cco  + '</td>' +
+                    '<td>'+ info_fact.des_item +'</td>' +
+                    '<td>'+ info_fact.mon_iva + '</td>' +
+                    '<td>'+ info_fact.des_talla +'</td>' +
+                    '<td>'+ info_fact.descrip_cuo +'</td>' +
+                    '<td>' + info_fact.cantidad + '</td>' +
+                    '<td>'+ info_fact.val_uni +'</td>' +                                        
+                    '<td>'+ info_fact.vsubtotal +'</td>' +
+                '</tr>' +
+            '</tbody></table>' + 
+            '<hr>' +
+		    '<hr>' +
+            '<div style="width:12cm;">' +
+                '<div style="display: inline-block; width:7cm; vertical-align: top; margin-top: 0.5cm;">' +
+                    '<strong style="text-align: left;">Observaciones:</strong>' +
+                    '<div style="margin:0.5cm;">' + 
+                        '<p style="display:inline-block; width:4cm;"><strong>Tasa E.A</strong> '+ numeral(data_fac.tasa_ea).format('0,000.00') + '</p>' +
+                        '<p style="display:inline-block; width:5cm;"><strong>Tasa Max Leg VIg.</strong>'+numeral(data_fac.tasa_max).format('0,000.00')+'</p>' +
+                        '<p style="text-align: center">'+info_fact.req_orc+'</p>' + 
+                    '</div>' +
+                '</div>' + 
+                '<div style="display: inline-block; text-align: left; width:5cm;">' +
+                    '<p>Subtotal:'+ info_fact.vsubtotal +'</p>' +
+                    '<p>VR Descuento: '+info_fact.vdescuento +'</p>' + 
+                    '<p>Total Finanza:'+info_fact.finan +'</p>' +
+                    '<p>Total a financiar:'+info_fact.aval+'</p>' +
+                    '<p>Total Interés:'+numeral(info_fact.finan).format('$0,000')+'</p>' +
+                '</div>' + 
+                '<div style="display: inline-block; width:7cm; margin: 0.5cm; vertical-align: top;">' + 
+                    '<p style="text-align: center;">Cambios: Los productos que contengan algunos accesorios deben traerse junto con éste para el cambio</p>' + 
+                '</div>' +
+                '<div style="display: inline-block; text-align: left;">' + 
+                    '<p>Vr Excluido: </p>' + 
+                    '<p>Vr Exc+inicial: </p>' + 
+                    '<strong>TOTAL:'+info_fact.val_tot+'</strong>' + 
+                '</div>' +
+                '<div style="display: block; width:7.5cm; margin:0 0.5cm; text-align: center;">' + 
+                    '<div style="margin:0 auto;">' + 
+                        '<p>____________________________________</p>' + 
+                        '<p>Firma cliente</p>' + 
+                        '<p>C.C '+info_fact.cliente+'</p>' + 
+                    '</div>' + 
+                '</div>' +
+                '<div style="display: inline-block;width: 6cm;margin: 0.5cm;vertical-align: top;text-align: left;">' + 
+                    '<strong>Plan de pago No '+info_fact.num_pagare+' </strong>' + 
+                '</div>' + 
+                '<div style="display: inline-block;background-color: #ccc;text-align: center;font-weight: bold;font-size: 10px;width: 4.5cm; line-height: 3px;">' + 
+                    '<p>Crédito afianzado por:</p>' + 
+                    '<p>GARANTIAS CREDITICIAS</p>' +
+                    '<p> S.A.S 900.906.654</p>' + 
+                    '<p>(Ingreso recibidos por terceros)</p>' +
+                '</div>' + 
+            '</div>' + 
+            '<table style="width:12cm;"><thead><tr>' + 
+                '<th>Código</th>' + 
+                '<th>Descripcción</th>' + 
+                '<th>Iva</th>' + 
+                '<th>Talla</th>' + 
+                '<th>Desc</th>' + 
+                '<th>Cant</th>' + 
+                '<th>Vr. Unitario</th>' + 
+                '<th>SubTotal</th>' + 
+            '</tr></thead>' +
+            '<tbody>' + 
+                '<tr>' + '<td>  -  </td>' + '<tr>'+ 
+            '</tbody></table>' +   
+            '</div>';                  
+
+
+            // START COLUMN 2
+            outputHtmlPagare +=  '<div style="border:1px solid; display:inline-block; font-family: "Arial", sans-serif; font-size: 12px;width:12cm; margin:0.2cm;">' +
+            '<h3 style="background-color:#ccc;text-align: center;width:12cm;margin: 0 auto;">Nuestra razón social cambió a partir de 27-NOV-2019 por Confe S.A.S</h3>' + 
+            '<div style="display: block; width: 12cm;">' + 
+                 '<div style="text-align: center; margin: 0 auto;"> ' +
+                     '<div style="display: inline-block; width: 9cm;">' + 
+                         '<h2 style="text-align: center">' + "PAGARE DE VENTA" + '</h2>'+
+                         '<h3>'+ "No R461000000" +'</h3>' + 
+                     '</div>' +
+                     '<div style="display: inline-block;">' +
+                         '<p style="right: 0;display: inline-block;">REIMP</p>' + 
+                         '<p style="">Page 1 de 1</p>' +
+                     '</div>'+
+                 '</div>' +
+                 '<div style="text-align: left; display: inline-block; width: 6.5cm;">' +
+                     '<p>KOAJ #1 - PUERTA NORTE</p>' +
+                     '<p>Forma de pago: CT4M -CREDITO 4 MESES</p>' +
+                     '<p>Cliente: AKOAJ1A PC: SIS1</p>' +                
+                     '<p>Codeudor: 0</p>' + 
+                     '<p>Vendedor: AKOAJ1A PC: SIS1</p>' +
+                 '</div>' +
+                 '<div style="display: inline-block; vertical-align: top;">' + 
+                     '<p style="text-align: right;">Fecha: Feb 6 2020  7:26</p>' +
+                     '<p style="text-align: right;">Documento: R461-0041939</p>' +
+                     '<div style="display: block;">' + 
+                         '<p style="display: inline-block; width: 3cm; font-weight: bold;"> Con Huella:</p>' + 
+                         '<p  style="background-color:#ccc; display: inline-block; padding:0 0.5cm;">NO</p >' + 
+                     '</div>' + 
+                     '<p>Elaboró: AKOAJ1A PC: SIS1</p>' + 
+                 '</div>' + 
+             '</div>'+
+             '<div style="width: 12cm;padding: 0px 0;display: inline-block;">' + 
+                 '<h4 style="text-align: left; display: inline-block; width:6.5cm;"><span style="background-color:#ccc; width:5cm; display: block;">Cupo disponible:'+ "$907.500" + '</span></h4>' +
+                 '<span style="text-align: right;position: relative; display: inline-block;">Para su uso debe estar al día </span>' +
+             '</div>' +
+             '<p>Aplica restricciones para primeros creditos con codeudor</p>' +
+             '<table style="width:12cm;"></tr><thead><tr>' +
+                 '<th>Código</th>' + 
+                 '<th>Descripcción</th>' +
+                 '<th>Iva</th>' +
+                 '<th>Talla</th>' +
+                 '<th>Desc</th>' +
+                 '<th>Cant</th>' +
+                 '<th>Vr. Unitario</th>' +
+                 '<th>SubTotal</th>' +
+             '</tr></thead>'+ 
+             '<tbody>' + 
+                 '<tr>' + 
+                     '<td>  -  </td>' +
+                     '<td>  -  </td>' +
+                     '<td>  -  </td>' +
+                     '<td>  -  </td>' +
+                     '<td>  -  </td>' +
+                     '<td>  -  </td>' +
+                     '<td>  -  </td>' +
+                     '<td>  -  </td>' +
+                 '</tr>' +
+             '</tbody></table>' + 
+             '<hr>' +
+             '<hr>' +
+             '<div style="width:12cm;">' +
+                 '<div style="display: inline-block; width:7cm; vertical-align: top; margin-top: 0.5cm;">' +
+                     '<strong style="text-align: left;">Observaciones:</strong>' +
+                     '<div style="margin:0.5cm;">' + 
+                         '<p style="display:inline-block; width:4cm;"><strong>Tasa E.A</strong> 28.34%</p>' +
+                         '<p style="display:inline-block; width:5cm;"><strong>Tasa Max Leg VIg.</strong> 28.59%</p>' +
+                         '<p style="text-align: center">AUT. RES DIAN Nro  DE  F461- DESDE  HASTA</p>' + 
+                     '</div>' +
+                 '</div>' + 
+                 '<div style="display: inline-block; text-align: left; width:5cm;">' +
+                     '<p>Subtotal: 247.000</p>' +
+                     '<p>VR Descuento: 0</p>' + 
+                     '<p>Total Finanza: 35.231</p>' +
+                     '<p>Total a financiar: 282.386</p>' +
+                     '<p>Total Interés: 14.986</p>' +
+                 '</div>' + 
+                 '<div style="display: inline-block; width:7cm; margin: 0.5cm; vertical-align: top;">' + 
+                     '<p style="text-align: center;">Cambios: Los productos que contengan algunos accesorios deben traerse junto con éste para el cambio</p>' + 
+                 '</div>' +
+                 '<div style="display: inline-block; text-align: left;">' + 
+                     '<p>Vr Excluido: </p>' + 
+                     '<p>Vr Exc+inicial: </p>' + 
+                     '<strong>TOTAL: 297372</strong>' + 
+                 '</div>' +
+                 '<div style="display: block; width:7.5cm; margin:0 0.5cm; text-align: center;">' + 
+                     '<div style="margin:0 auto;">' + 
+                         '<p>____________________________________</p>' + 
+                         '<p>Firma cliente</p>' + 
+                         '<p>C.C 42938174</p>' + 
+                     '</div>' + 
+                 '</div>' +
+                 '<div style="display: inline-block;width: 6cm;margin: 0.5cm;vertical-align: top;text-align: left;">' + 
+                     '<strong>Plan de pago No F466-234234 </strong>' + 
+                 '</div>' + 
+                 '<div style="display: inline-block;background-color: #ccc;text-align: center;font-weight: bold;font-size: 10px;width: 4.5cm; line-height: 3px;">' + 
+                     '<p>Crédito afianzado por:</p>' + 
+                     '<p>GARANTIAS CREDITICIAS</p>' +
+                     '<p> S.A.S 900.906.654</p>' + 
+                     '<p>(Ingreso recibidos por terceros)</p>' +
+                 '</div>' + 
+             '</div>' + 
+             '<table style="width:12cm;"><thead><tr>' + 
+                 '<th>Código</th>' + 
+                 '<th>Descripcción</th>' + 
+                 '<th>Iva</th>' + 
+                 '<th>Talla</th>' + 
+                 '<th>Desc</th>' + 
+                 '<th>Cant</th>' + 
+                 '<th>Vr. Unitario</th>' + 
+                 '<th>SubTotal</th>' + 
+             '</tr></thead>' +
+             '<tbody>' + 
+                 '<tr>' + '<td>  -  </td>' + '<tr>'+ 
+             '</tbody></table>' +   
+             '</div></div>';
+
 
             if (info_fact.nom_tip.trim() == "PAGARE DE VENTA") {
                 printHtml(outputHtmlPagare);
