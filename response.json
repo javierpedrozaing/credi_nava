@@ -1,0 +1,130 @@
+msg: "Success"
+type: "success"
+data: Array(4)
+0: Array(1)
+0:
+ano_doc: "2020"
+per_doc: "03"
+tip_doc: "510"
+num_doc: "F763-01444    "
+fecha: "2020-03-13T00:00:00.000Z"
+nom_tip: "PAGARE DE VENTA               "
+cliente: "21677197       "
+marca: " "
+usuario: "credimarca                         "
+fec_grab: "2020-03-13T09:38:55.143Z"
+obs_orc: "0"
+req_orc: "AUT. RES DIAN Nro  DE  F120- DESDE  HASTA"
+bodega: "763"
+item: "001"
+des_item: "VENTAS A CREDITO CONFE S.A                                                                     "
+cantidad: 1
+val_ori: 55000
+val_uni: 55000
+val_tot: 55000
+ven_net: 55000
+mon_iva: 0
+mon_des: 0
+val_def: 55000
+vr_cre: 55000
+finan: 2288
+b_fin: 2288
+iva_fi: 0
+aval: 7854
+b_aval: 6600
+iva_aval: 1254
+nom_cli: "ANGELA MARIA DIOSSA VERGARA"
+cup_cli: 395000
+vendedor: "Q01"
+nom_ven: "COD VENDEDOR COLORE#1"
+codeudor1: "               "
+nom_cod: null
+descrip_cuo: "CT3Q -CREDITO 6 QUINCENAS                         "
+reg_doc: 1
+cod_cco: "763       "
+nom_cco: "CLAN MOVIL OLIMPICA#4                                                                               "
+recibido: 0
+devuelta: 0
+telefono: "2931845 "
+dir_cli: "CLL 11 SUR # 11 - 11 APTO 1111 (CIUDAD BOLIVAR, BOGOTA D.C.)"
+cel_cli: "2222222222"
+e_mail_cli: "vergaraangela039@gmail.com              "
+dir_cod: ""
+cel_cod: ""
+e_mail_cod: ""
+num_pagare: "F763-01444"
+FechaHora: "Mar 13 2020  9:38AM           "
+FechaAct: "17-Mar-2020"
+tasa_ea: 27.91
+tasa_int: 1.03093079
+doc_ref: "0             "
+tasa_max: 28.16
+por_aval: 14.28
+EmpFianza: "  "
+FianzaNom: ""
+FianzaNit: ""
+con_huella: "NO"
+des_talla: "NO APLICA                     "
+vsubtotal: 0
+vdescuento: 0
+vmcia: 0
+vivamcia: 0
+por_des: 0
+por_iva: 0
+bolsa_canti: 0
+bolsa_valor: 0
+bolsa_canti2: 0
+bolsa_valor2: 0
+huella: 0
+mod_liq: 2
+fianpag: 0
+tipo_credito: "01"
+__proto__: Object
+length: 1
+__proto__: Array(0)
+1: Array(1)
+0:
+Numero: "F763-01444;F763-01444;F763-01444;F763-01444;F763-01444;F763-01444"
+Cuotas: " 1; 2; 3; 4; 5; 6"
+FecVen: "28/03/2020;12/04/2020;27/04/2020;12/05/2020;27/05/2020;11/06/2020"
+ValCap: "8,943;9,049;9,155;9,263;9,372;9,218"
+ValInt: "648;542;436;328;219;115"
+ValIvaInt: "0;0;0;0;0;0"
+ValFianza: "1,100;1,100;1,100;1,100;1,100;1,100"
+ValIvaFia: "209;209;209;209;209;209"
+ValorCuota: "10,900;10,900;10,900;10,900;10,900;10,642"
+VTCap: 55000
+VTInteres: 2288
+VTIvaInt: 0
+VTFianza: 6600
+VTIvaFianza: 1254
+ValorTotal: 65142
+num_pagare: "IDAPROB-120"
+biodata: 0
+__proto__: Object
+length: 1
+__proto__: Array(0)
+2: Array(0)
+length: 0
+__proto__: Array(0)
+3: Array(1)
+0:
+Ubicacion: "0"
+Almacen: "0"
+Direccion: "0"
+Telefono: "0"
+__proto__: Object
+length: 1
+__proto__: Array(0)
+length: 4
+__proto__: Array(0)
+err: false
+__proto__: Object
+
+
+let fecVen = info_detail.FecVen.split(';');
+let valCap = info_detail.ValCap.split(';');
+let ValIvaInt = info_detail.ValIvaInt.split(';');
+let valInt = info_detail.ValInt.split(';');
+let valFianza = info_detail.ValFianza.split(';');
+let valIvaFia = info_detail.ValIvaFia.split(';');
