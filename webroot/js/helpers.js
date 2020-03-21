@@ -628,29 +628,29 @@ function printInvoiceLetter(number, ignorePreload) {
             ////////////////////////// //// FIN FORMAT RECIBO //////////////////////////
 
 
-            var outputHtmlPagare = '<div style="width:auto;">' +
-                '<div style="border:1px solid; display:inline-block; font-family: Arial, sans-serif; font-size: 8px; width: 12cm;margin:0.2cm;">' +
-                '<h3 style="background-color:#ccc;text-align: center;margin: 0 auto;">Nuestra razón social cambió a partir de 27-NOV-2019 por Confe S.A.S</h3>' +
-                '<div style="display: block;">' +
-                    '<div style="text-align: center; margin: 0 auto;">' +
-                        '<div style="display: inline-block; width: 10cm;">' +
-                        '<h2 style="text-align: center">' + "PAGARÉ DE VENTA" + '</h2>' +
-                        '<h3>' + info_fact.num_pagare + '</h3>' +
-                        '</div>' +
-                        '<div style="display: inline-block;">' +
-                        '<p style="right: 0;display: inline-block;">REIMP</p>' +
-                        '<p style="">Page 1 de 1</p>' +
+            var outputHtmlPagare = '<div style="width:auto; margin-top: 50px;">' +
+                '<div style="border:1px solid; display:inline-block; font-family: Roboto, Segoe UI, Tahoma, sans-serif, sans-serif; font-size: 8px; width: 12cm;margin:0.2cm;">' +
+                '<h3 style="background-color: #bdb8b8;text-align: center;margin: 0 auto;width: 11cm;padding: 0;font-weight: 800;font-size: 11px;font-family: Roboto, Segoe UI, Tahoma, sans-serif;">Nuestra razón social cambió a partir de 27-NOV-2019 por Confe S.A.S</h3>' +
+                '<div style="display: block;margin: 0;height: auto;">' +
+                    '<div style="text-align: center;margin: 0 auto;">' +
+                        '<div style="display: inline-block;width: 10cm;">' +
+                            '<h2 style="text-align: center;margin: 2px auto;">' + "PAGARÉ DE VENTA" + '</h2>' +
+                            '<h3 style="margin: 0;">No. ' + info_fact.num_pagare + '</h3>' +
+                            '</div>' +
+                        '<div style="display: inline-block;vertical-align: top; margin-top: 4px;">' +
+                            '<p style="right: 0;display: inline-block; margin:0;">REIMP</p>' +
+                            '<p style="margin:0;">Page 1 de 1</p>' +
                         '</div>' +
                     '</div>' +
-                    '<div style="text-align: left; display: inline-block; width: 8cm;">' +
-                        '<p'+info_fact.nom_cli+'</p>' +
-                        '<p><strong>Forma de pago:</strong>' + info_fact.descrip_cuo + '</p>' +
-                        '<p><strong>Cliente:</strong> ' +  info_fact.cliente.trim()  + " " + info_fact.nom_cli + '</p>' +
-                        '<p><strong>Codeudor:</strong> ' + codeudor + '</p>' +
-                        '<p><strong>Vendedor:</strong> ' + info_fact.vendedor + " " + info_fact.nom_ven + ' </p>' +
+                    '<div style="text-align: left;display: inline-block;width: 8cm;line-height: 7px;">' +
+                        '<p>' + info_fact.nom_cli+'</p>' +
+                        '<p><strong>Forma de pago: </strong>' + info_fact.descrip_cuo + '</p>' +
+                        '<p><strong>Cliente: </strong> ' +  info_fact.cliente.trim()  + " " + info_fact.nom_cli + '</p>' +
+                        '<p><strong>Codeudor: </strong> ' + codeudor + '</p>' +                        
+                        '<p style="margin:0;"><strong>Vendedor: </strong> ' + info_fact.vendedor + " " + info_fact.nom_ven + ' </p>' +
                     '</div>' +
-                    '<div style="display: inline-block; vertical-align: top; text-align: right">' +
-                        '<p">' + info_fact.FechaHora + '</p>' +
+                    '<div style="display: inline-block; vertical-align: top; text-align: right;line-height: 6px;">' +
+                        '<p"> Fecha: ' + info_fact.FechaHora + '</p>' +
                         '<p">Documento: ' + info_fact.num_doc + '</p>' +
                         '<div style="display: block;">' +
                             '<p style="display: inline-block; width: 2cm; font-weight: bold;"> Con Huella:</p>' +
@@ -659,101 +659,101 @@ function printInvoiceLetter(number, ignorePreload) {
                         '<p>Elaboró: ' + info_fact.nom_ven + '</p>' +
                     '</div>' +
                 '</div>' +
-                '<div style="padding: 0px 0;display: inline-block;">' +
-                    '<h2 style="text-align: left; display: inline-block; width:8.5cm;"><span style="background-color:#ccc; width:8cm; display: block;">Cupo disponible:' + info_fact.cup_cli + '</span></h4>' +
-                    '<span style="text-align: right;position: relative; display: inline-block;">Para su uso debe estar al día </span>' +
+                '<div style="padding: 0px 0;display: inline-block;">' +                    
+                    '<h2 style="text-align: left; display: inline-block; width:8.5cm;"><span style="background-color:#bdb8b8; width: 6cm;; display: block;">Cupo disponible:' + info_fact.cup_cli + '</span></h2>' +
+                    '<span style="text-align: right;position: relative; display: inline-block; vertical-align:super; ">(Para su uso debe estar al día) </span>' +
                 '</div>' +
                 '<p>Aplica restricciones para primeros creditos con codeudor</p>' +
-                '<table style="width:11.5cm; font-size:7px;"></tr><thead><tr>' +
-                '<th>Código</th>' +
-                '<th>Descripcción</th>' +
-                '<th>Iva</th>' +
-                '<th>Talla</th>' +
-                '<th>Desc</th>' +
-                '<th>Cant</th>' +
-                '<th>Vr. Unitario</th>' +
-                '<th>SubTotal</th>' +
+                '<table style="width:11.5cm; font-size:8px;">' +
+                '<thead><tr style="border-top: 1px solid #000000;display: block;width: 11.5cm;border-bottom: 1px solid #000000; text-align:left;">' +
+                    '<th style="width:1cm;">Código</th>' +
+                    '<th style="width:6cm;">Descripcción</th>' +
+                    '<th style="width:1cm;">Iva</th>' +
+                    '<th style="width:2cm;">Talla</th>' +
+                    '<th style="width:2cm;">Desc</th>' +
+                    '<th style="width:2cm;">Cant</th>' +
+                    '<th style="width:2cm;">Vr. Unitario</th>' +
+                    '<th>SubTotal</th>' +
                 '</tr></thead>' +
                 '<tbody>' +
-                '<tr>' +
-                '<td> ' + info_fact.cod_cco + '</td>' +
-                '<td>' + info_fact.des_item + '</td>' +
-                '<td>' + info_fact.mon_iva + '</td>' +
-                '<td>' + info_fact.des_talla + '</td>' +
-                '<td>' + info_fact.descrip_cuo + '</td>' +
-                '<td>' + info_fact.cantidad + '</td>' +
-                '<td>' + info_fact.val_uni + '</td>' +
-                '<td>' + info_fact.vsubtotal + '</td>' +
-                '</tr>' +
+                    '<tr style="display: block;width: 11.5cm; text-align:left;">' +
+                    '<td style="width:1cm;">' + info_fact.cod_cco + '</td>' +
+                    '<td style="width:6cm;">' + info_fact.des_item + '</td>' +
+                    '<td style="width:1cm;">' + info_fact.mon_iva + '</td>' +
+                    '<td style="width:2cm;">' + info_fact.des_talla + '</td>' +
+                    '<td style="width:2cm;">' + info_fact.mon_des + '</td>' +
+                    '<td style="width:2cm;">' + info_fact.cantidad + '</td>' +
+                    '<td style="width:2cm;">' + info_fact.val_uni + '</td>' +
+                    '<td style="width:2cm; text-align:right;">' + info_fact.vsubtotal + '</td>' +
+                    '</tr>' +
                 '</tbody></table>' +
-                '<hr>' +
-                
-                '<div>' +
-                '<div style="display: inline-block; width:8cm; vertical-align: top;">' +
-                    '<strong style="text-align: left;">Observaciones:</strong>' +
-                    '<div style="margin:0.5cm;">' +
-                        '<p style="display:inline-block; width:3cm;"><strong>Tasa E.A</strong> ' + numeral(info_fact.tasa_ea).format('0,000.00') + '</p>' +
-                        '<p style="display:inline-block; width:3cm;"><strong>Tasa Max Leg VIg.</strong>' + numeral(info_fact.tasa_max).format('0,000.00') + '</p>' +
-                        '<p style="text-align: center">' + info_fact.req_orc + '</p>' +
+                '<hr style="border:1px solid #0000008f;">  ' +            
+                '<div style="">' +
+                    '<div style="display: inline-block; width:7.5cm; vertical-align: top;">' +
+                        '<strong style="text-align: left;">Observaciones:</strong>' +
+                        '<div style="margin:0.5cm;">' +                            
+                            '<p style="display: inline-block; width: 2cm; margin-left: 1cm;"><strong>Tasa E.A</strong> ' + numeral(info_fact.tasa_ea).format('0,000.00') + '%' + '</p>'  +
+                            '<p style="display:inline-block; width:3cm;"><strong>Tasa Max Leg VIg.</strong> ' + numeral(info_fact.tasa_max).format('0,000.00') + '%' + '</p>' +                            
+                            '<p style="text-align: center">' + info_fact.req_orc + '</p>' +
+                        '</div>' +
+                    '</div>' +
+                    '<div style="display: inline-block; text-align: left; width:4cm;">' +                                        
+                        '<p style="margin:0;float: right;"><strong style="width: 3cm;display: inline-block;">Subtotal:</strong><span style="width:1cm;width: 1cm;float: right;text-align: right;">'+info_fact.vsubtotal+'</span> </p>'  +                       
+                        '<p style="margin:0;float: right;"><span style="width: 3cm;display: inline-block;">VR Descuento:</span><span style="width:1cm;width: 1cm;float: right;text-align: right;">'+ info_fact.vdescuento + '</span></p>' + 
+                        '<hr style="width: 2cm;border: 1px solid;margin: 0;float: right; border:1px solid #0000008f;">' +                        
+                        '<p style="margin-bottom:0; margin-top: 20px; float: right;"><span style="width: 3cm;display: inline-block;">Total Finanza:</span><span style="width: 1cm;float: right;text-align: right;">' + info_fact.finan + '</span> </p>' +                        
+                        '<p style="margin:0;"><span style="width: 3cm;display: inline-block;">Total a financiar:</span> <span style="width: 1cm;float: right;text-align: right;">' + info_fact.aval + '</span> </p>' +                        
+                        '<p style="margin:0; float: right;"><span style="width: 3.3cm;display: inline-block;">Total Interés:</span> <span style="width: 1cm;float: right;text-align: right;"> ' + numeral(info_fact.finan).format('$0,000') + ' </span> </p>' +
+                    '</div>' +
+                    '<div style="display: inline-block; width:6.5cm; margin: 6px 0.5cm;; vertical-align: top;">' +
+                        '<p style="text-align: center; width: 6cm; margin: 0 auto;">Cambios: Los productos que contengan algunos accesorios deben traerse junto con éste para el cambio</p>' +
+                    '</div>' +
+                    '<div style="display: inline-block; text-align: left; width:4cm;">' +                        
+                        '<p style="margin:0; float: right;"><span style="width: 3cm;display: inline-block;">Vr Excluido: </span><span style="width: 1cm;float: right;text-align: right;"> 0</span> </p>' + //??                        
+                        '<p style="margin:0; float: right;"><span style="width: 3cm;display: inline-block;">Vr Exc+inicial: </span> <span style="width: 1cm;float: right;text-align: right;"> 0 </span></p>' + //??                        
+                        '<p style="margin:0; float: right" ><strong style="width: 3cm;display: inline-block;">TOTAL: </strong> <span  style="width: 1cm;float: right;text-align: right;"> ' + info_fact.val_tot + '</span></p>' +
+                    '</div>' +
+                    '<div style="display: block; width:6.5cm; margin:0 0.5cm; text-align: center;">' +
+                        '<div style="margin:0 auto;">' +
+                            '<hr style="border:1px solid #0000008f; width:5cm;">' +
+                            '<p style="margin:0;">Firma cliente</p>' +                            
+                            '<p style="margin:0;">C.C ' + info_fact.cliente + ' </p>' +
+                        '</div>' +
+                    '</div>' +
+
+                    '<div style="display: inline-block;width: 7cm;margin: 8px 0.1cm;;vertical-align: top;text-align: left;">' +                        
+                        '<strong>Plan de pago Obligación No' + info_fact.num_pagare + ' </strong>' +
+                    '</div>' +
+
+                    '<div style="display: inline-block;background-color: #bdb8b8;text-align: center;font-weight: bold;font-size: 8px;width: 4.5cm;">' +
+                        '<p style="line-height: 8px;  margin: auto;">Crédito afianzado por:<br/> GARANTIAS CREDITICIAS S.A.S 900.906.654 (Ingreso recibidos por terceros)</p>' +
                     '</div>' +
                 '</div>' +
-                '<div style="display: inline-block; text-align: left; width:3.5cm;">' +                
-                '<p style="margin:0;width: 3.5cm;text-align: right;"><span style="display: inline-block;width: 2.5cm;text-align: left;">Subtotal:</span><span style="display: inline-block;width:1cm;">'+info_fact.vsubtotal+' </span></p>' +                 
-                '<p style="margin:0;text-align: right;"><span style="display: inline-block;">VR Descuento:</span><span style="display: inline-block;width: 2cm;text-align: right;">'+ info_fact.vdescuento + '</span></p>'+
-                    '<hr style="width: 1.5cm;margin-left: 2cm;">' +
-                    '<p>Total Finanza:' + info_fact.finan + '</p>' +
-                    '<p>Total a financiar:' + info_fact.aval + '</p>' +
-                    '<p>Total Interés:' + numeral(info_fact.finan).format('$0,000') + '</p>' +
-                '</div>' +
-                '<div style="display: inline-block; width:7.5cm; margin: 0.5cm; vertical-align: top;">' +
-                    '<p style="text-align: center;">Cambios: Los productos que contengan algunos accesorios deben traerse junto con éste para el cambio</p>' +
-                '</div>' +
-                '<div style="display: inline-block; text-align: left;">' +
-                    '<p>Vr Excluido: </p>' +
-                    '<p>Vr Exc+inicial: </p>' +
-                    '<strong>TOTAL:' + info_fact.val_tot + '</strong>' +
-                '</div>' +
-                '<div style="display: block; width:7.5cm; margin:0 0.5cm; text-align: center;">' +
-                    '<div style="margin:0 auto;">' +
-                        '<p>____________________________________</p>' +
-                        '<p>Firma cliente</p>' +
-                        '<p>C.C ' + info_fact.cliente + '</p>' +
-                    '</div>' +
-                '</div>' +
-                '<div style="display: inline-block;width: 7.5cm;margin: 0.5cm;vertical-align: top;text-align: left;">' +
-                    '<strong>Plan de pago No ' + info_fact.num_pagare + ' </strong>' +
-                '</div>' +
-                '<div style="display: inline-block;background-color: #ccc;text-align: center;font-weight: bold;font-size: 8px; line-height: 3px;">' +
-                    '<p>Crédito afianzado por:</p>' +
-                    '<p>GARANTIAS CREDITICIAS</p>' +
-                    '<p> S.A.S 900.906.654</p>' +
-                    '<p>(Ingreso recibidos por terceros)</p>' +
-                '</div>' +
-                '</div>' +
-                '<table style="width:11.5cm; font-size:7px;"><thead><tr>' +
+
+                '<table style="width: auto;margin: 0;padding: 0; font-size:8px;"><thead><tr style="display: block;width: 11.5cm;">' +
                 '<th>Cuota</th>' +
-                '<th>F. Pago</th>' +
-                '<th>Vr. Mcia</th>' +
-                '<th>Fianza</th>' +
-                '<th>Iva Fianza</th>' +
-                '<th>Vr. a Financiar</th>' +
-                '<th>Interes</th>' +
-                '<th>Iva Interes </th>' +
-                '<th>Vr.Cuota </th>' +                
+                '<th style="width:4cm;">F. Pago</th>' +
+                '<th style="width:2cm;">Vr. Mcia</th>' +
+                '<th style="width:2cm;">Fianza</th>' +
+                '<th style="width:2cm;">Iva Fianza</th>' +
+                '<th style="width:3cm;">Vr. a Financiar</th>' +
+                '<th style="width:2cm;">Interes</th>' +
+                '<th style="width:2cm;">Iva Interes </th>' +
+                '<th style="width:2cm;">Vr.Cuota </th>' +                
                 '</tr></thead>' +
                 '<tbody>';
 
                 for (k in cuotas) {
-                    outputHtmlPagare += '<tr>' +
-                        '<td align="center">' + cuotas[k] + '</td>' +
-                        '<td>' + fecVen[k] + '</td>' +
-                        '<td>' + info_fact.vmcia + '</td>' +
-                        '<td>' + valFianza[k] + '</td>' +
-                        '<td>' + valIvaFia[k] + '</td>' +
-                        '<td>' + info_detail.VTFianza + '</td>' +
-                        '<td>' + info_detail.VTInteres + '</td>' +
-                        '<td>' + info_detail.VTIvaInt + '</td>' +     
-                        '<td>' + valCuota[k] + '</td>' +                     
+                    outputHtmlPagare += '<tr style="display: block;width: 11.5cm;">' +
+                        '<td style="width:2cm;">' + cuotas[k] + '</td>' +
+                        '<td style="width:2cm;">' + fecVen[k] + '</td>' +
+                        '<td style="width:2cm;">' + info_fact.vmcia + '</td>' +
+                        '<td style="width:2cm;">' + valFianza[k] + '</td>' +
+                        '<td style="width:2cm;">' + valIvaFia[k] + '</td>' +
+                        '<td style="width:2cm;">' + info_detail.VTFianza + '</td>' +
+                        '<td style="width:2cm;">' + info_detail.VTInteres + '</td>' +
+                        '<td style="width:2cm;">' + info_detail.VTIvaInt + '</td>' +     
+                        '<td style="width:2cm;">' + valCuota[k] + '</td>' +                     
                         '</tr>';
                 }
                 
@@ -763,28 +763,28 @@ function printInvoiceLetter(number, ignorePreload) {
 
 
             // START COLUMN 2
-            outputHtmlPagare += '<div style="border:1px solid; display:inline-block; font-family: Arial, sans-serif; font-size: 8px; width: 12cm;margin:0.2cm;">' +
-            '<h3 style="background-color:#ccc;text-align: center;margin: 0 auto;">Nuestra razón social cambió a partir de 27-NOV-2019 por Confe S.A.S</h3>' +
-            '<div style="display: block;">' +
-                '<div style="text-align: center; margin: 0 auto;">' +
-                    '<div style="display: inline-block; width: 10cm;">' +
-                    '<h2 style="text-align: center">' + "PAGARÉ DE VENTA" + '</h2>' +
-                    '<h3>' + info_fact.num_pagare + '</h3>' +
-                    '</div>' +
-                    '<div style="display: inline-block;">' +
-                    '<p style="right: 0;display: inline-block;">REIMP</p>' +
-                    '<p style="">Page 1 de 1</p>' +
+            outputHtmlPagare += '<div style="border:1px solid; display:inline-block; font-family: Roboto, Segoe UI, Tahoma, sans-serif, sans-serif; font-size: 8px; width: 12cm;margin:0.2cm;">' +
+            '<h3 style="background-color: #bdb8b8;text-align: center;margin: 0 auto;width: 11cm;padding: 0;font-weight: 800;font-size: 11px;font-family: Roboto, Segoe UI, Tahoma, sans-serif;">Nuestra razón social cambió a partir de 27-NOV-2019 por Confe S.A.S</h3>' +
+            '<div style="display: block;margin: 0;height: auto;">' +
+                '<div style="text-align: center;margin: 0 auto;">' +
+                    '<div style="display: inline-block;width: 10cm;">' +
+                        '<h2 style="text-align: center;margin: 2px auto;">' + "PAGARÉ DE VENTA" + '</h2>' +
+                        '<h3 style="margin: 0;">No. ' + info_fact.num_pagare + '</h3>' +
+                        '</div>' +
+                    '<div style="display: inline-block;vertical-align: top; margin-top: 4px;">' +
+                        '<p style="right: 0;display: inline-block; margin:0;">REIMP</p>' +
+                        '<p style="margin:0;">Page 1 de 1</p>' +
                     '</div>' +
                 '</div>' +
-                '<div style="text-align: left; display: inline-block; width: 8cm;">' +
-                    '<p'+info_fact.nom_cli+'</p>' +
-                    '<p><strong>Forma de pago:</strong>' + info_fact.descrip_cuo + '</p>' +
-                    '<p><strong>Cliente:</strong> ' +  info_fact.cliente.trim()  + " " + info_fact.nom_cli + '</p>' +
-                    '<p><strong>Codeudor:</strong> ' + codeudor + '</p>' +
-                    '<p><strong>Vendedor:</strong> ' + info_fact.vendedor + " " + info_fact.nom_ven + ' </p>' +
+                '<div style="text-align: left;display: inline-block;width: 8cm;line-height: 7px;">' +
+                    '<p>' + info_fact.nom_cli+'</p>' +
+                    '<p><strong>Forma de pago: </strong>' + info_fact.descrip_cuo + '</p>' +
+                    '<p><strong>Cliente: </strong> ' +  info_fact.cliente.trim()  + " " + info_fact.nom_cli + '</p>' +
+                    '<p><strong>Codeudor: </strong> ' + codeudor + '</p>' +                        
+                    '<p style="margin:0;"><strong>Vendedor: </strong> ' + info_fact.vendedor + " " + info_fact.nom_ven + ' </p>' +
                 '</div>' +
-                '<div style="display: inline-block; vertical-align: top; text-align: right">' +
-                    '<p">' + info_fact.FechaHora + '</p>' +
+                '<div style="display: inline-block; vertical-align: top; text-align: right;line-height: 6px;">' +
+                    '<p"> Fecha: ' + info_fact.FechaHora + '</p>' +
                     '<p">Documento: ' + info_fact.num_doc + '</p>' +
                     '<div style="display: block;">' +
                         '<p style="display: inline-block; width: 2cm; font-weight: bold;"> Con Huella:</p>' +
@@ -793,110 +793,110 @@ function printInvoiceLetter(number, ignorePreload) {
                     '<p>Elaboró: ' + info_fact.nom_ven + '</p>' +
                 '</div>' +
             '</div>' +
-            '<div style="padding: 0px 0;display: inline-block;">' +
-                '<h2 style="text-align: left; display: inline-block; width:8.5cm;"><span style="background-color:#ccc; width:8cm; display: block;">Cupo disponible:' + info_fact.cup_cli + '</span></h4>' +
-                '<span style="text-align: right;position: relative; display: inline-block;">Para su uso debe estar al día </span>' +
+            '<div style="padding: 0px 0;display: inline-block;">' +                    
+                '<h2 style="text-align: left; display: inline-block; width:8.5cm;"><span style="background-color:#bdb8b8; width: 6cm;; display: block;">Cupo disponible:' + info_fact.cup_cli + '</span></h2>' +
+                '<span style="text-align: right;position: relative; display: inline-block; vertical-align:super; ">(Para su uso debe estar al día) </span>' +
             '</div>' +
             '<p>Aplica restricciones para primeros creditos con codeudor</p>' +
-            '<table style="width:11.5cm; font-size:7px;"></tr><thead><tr>' +
-            '<th>Código</th>' +
-            '<th>Descripcción</th>' +
-            '<th>Iva</th>' +
-            '<th>Talla</th>' +
-            '<th>Desc</th>' +
-            '<th>Cant</th>' +
-            '<th>Vr. Unitario</th>' +
-            '<th>SubTotal</th>' +
+            '<table style="width:11.5cm; font-size:8px;">' +
+            '<thead><tr style="border-top: 1px solid #000000;display: block;width: 11.5cm;border-bottom: 1px solid #000000; text-align:left;">' +
+                '<th style="width:1cm;">Código</th>' +
+                '<th style="width:6cm;">Descripcción</th>' +
+                '<th style="width:1cm;">Iva</th>' +
+                '<th style="width:2cm;">Talla</th>' +
+                '<th style="width:2cm;">Desc</th>' +
+                '<th style="width:2cm;">Cant</th>' +
+                '<th style="width:2cm;">Vr. Unitario</th>' +
+                '<th>SubTotal</th>' +
             '</tr></thead>' +
             '<tbody>' +
-            '<tr>' +
-            '<td> ' + info_fact.cod_cco + '</td>' +
-            '<td>' + info_fact.des_item + '</td>' +
-            '<td>' + info_fact.mon_iva + '</td>' +
-            '<td>' + info_fact.des_talla + '</td>' +
-            '<td>' + info_fact.descrip_cuo + '</td>' +
-            '<td>' + info_fact.cantidad + '</td>' +
-            '<td>' + info_fact.val_uni + '</td>' +
-            '<td>' + info_fact.vsubtotal + '</td>' +
-            '</tr>' +
+                '<tr style="display: block;width: 11.5cm; text-align:left;">' +
+                '<td style="width:1cm;">' + info_fact.cod_cco + '</td>' +
+                '<td style="width:6cm;">' + info_fact.des_item + '</td>' +
+                '<td style="width:1cm;">' + info_fact.mon_iva + '</td>' +
+                '<td style="width:2cm;">' + info_fact.des_talla + '</td>' +
+                '<td style="width:2cm;">' + info_fact.mon_des + '</td>' +
+                '<td style="width:2cm;">' + info_fact.cantidad + '</td>' +
+                '<td style="width:2cm;">' + info_fact.val_uni + '</td>' +
+                '<td style="width:2cm; text-align:right;">' + info_fact.vsubtotal + '</td>' +
+                '</tr>' +
             '</tbody></table>' +
-            '<hr>' +
-            
-            '<div>' +
-            '<div style="display: inline-block; width:8cm; vertical-align: top;">' +
-                '<strong style="text-align: left;">Observaciones:</strong>' +
-                '<div style="margin:0.5cm;">' +
-                    '<p style="display:inline-block; width:3cm;"><strong>Tasa E.A</strong> ' + numeral(info_fact.tasa_ea).format('0,000.00') + '</p>' +
-                    '<p style="display:inline-block; width:3cm;"><strong>Tasa Max Leg VIg.</strong>' + numeral(info_fact.tasa_max).format('0,000.00') + '</p>' +
-                    '<p style="text-align: center">' + info_fact.req_orc + '</p>' +
+            '<hr style="border:1px solid #0000008f;">  ' +            
+            '<div style="">' +
+                '<div style="display: inline-block; width:7.5cm; vertical-align: top;">' +
+                    '<strong style="text-align: left;">Observaciones:</strong>' +
+                    '<div style="margin:0.5cm;">' +                            
+                        '<p style="display: inline-block; width: 2cm; margin-left: 1cm;"><strong>Tasa E.A</strong> ' + numeral(info_fact.tasa_ea).format('0,000.00') + '%' + '</p>'  +
+                        '<p style="display:inline-block; width:3cm;"><strong>Tasa Max Leg VIg.</strong> ' + numeral(info_fact.tasa_max).format('0,000.00') + '%' + '</p>' +                            
+                        '<p style="text-align: center">' + info_fact.req_orc + '</p>' +
+                    '</div>' +
+                '</div>' +
+                '<div style="display: inline-block; text-align: left; width:4cm;">' +                                        
+                    '<p style="margin:0;float: right;"><strong style="width: 3cm;display: inline-block;">Subtotal:</strong><span style="width:1cm;width: 1cm;float: right;text-align: right;">'+info_fact.vsubtotal+'</span> </p>'  +                       
+                    '<p style="margin:0;float: right;"><span style="width: 3cm;display: inline-block;">VR Descuento:</span><span style="width:1cm;width: 1cm;float: right;text-align: right;">'+ info_fact.vdescuento + '</span></p>' + 
+                    '<hr style="width: 2cm;border: 1px solid;margin: 0;float: right; border:1px solid #0000008f;">' +                        
+                    '<p style="margin-bottom:0; margin-top: 20px; float: right;"><span style="width: 3cm;display: inline-block;">Total Finanza:</span><span style="width: 1cm;float: right;text-align: right;">' + info_fact.finan + '</span> </p>' +                        
+                    '<p style="margin:0;"><span style="width: 3cm;display: inline-block;">Total a financiar:</span> <span style="width: 1cm;float: right;text-align: right;">' + info_fact.aval + '</span> </p>' +                        
+                    '<p style="margin:0; float: right;"><span style="width: 3.3cm;display: inline-block;">Total Interés:</span> <span style="width: 1cm;float: right;text-align: right;"> ' + numeral(info_fact.finan).format('$0,000') + ' </span> </p>' +
+                '</div>' +
+                '<div style="display: inline-block; width:6.5cm; margin: 6px 0.5cm;; vertical-align: top;">' +
+                    '<p style="text-align: center; width: 6cm; margin: 0 auto;">Cambios: Los productos que contengan algunos accesorios deben traerse junto con éste para el cambio</p>' +
+                '</div>' +
+                '<div style="display: inline-block; text-align: left; width:4cm;">' +                        
+                    '<p style="margin:0; float: right;"><span style="width: 3cm;display: inline-block;">Vr Excluido: </span><span style="width: 1cm;float: right;text-align: right;"> 0</span> </p>' + //??                        
+                    '<p style="margin:0; float: right;"><span style="width: 3cm;display: inline-block;">Vr Exc+inicial: </span> <span style="width: 1cm;float: right;text-align: right;"> 0 </span></p>' + //??                        
+                    '<p style="margin:0; float: right" ><strong style="width: 3cm;display: inline-block;">TOTAL: </strong> <span  style="width: 1cm;float: right;text-align: right;"> ' + info_fact.val_tot + '</span></p>' +
+                '</div>' +
+                '<div style="display: block; width:6.5cm; margin:0 0.5cm; text-align: center;">' +
+                    '<div style="margin:0 auto;">' +
+                        '<hr style="border:1px solid #0000008f; width:5cm;">' +
+                        '<p style="margin:0;">Firma cliente</p>' +                            
+                        '<p style="margin:0;">C.C ' + info_fact.cliente + ' </p>' +
+                    '</div>' +
+                '</div>' +
+
+                '<div style="display: inline-block;width: 7cm;margin: 8px 0.1cm;;vertical-align: top;text-align: left;">' +                        
+                    '<strong>Plan de pago Obligación No' + info_fact.num_pagare + ' </strong>' +
+                '</div>' +
+
+                '<div style="display: inline-block;background-color: #bdb8b8;text-align: center;font-weight: bold;font-size: 8px;width: 4.5cm;">' +
+                    '<p style="line-height: 8px;  margin: auto;">Crédito afianzado por:<br/> GARANTIAS CREDITICIAS S.A.S 900.906.654 (Ingreso recibidos por terceros)</p>' +
                 '</div>' +
             '</div>' +
-            '<div style="display: inline-block; text-align: left; width:3.5cm;">' +                
-            '<p style="margin:0;width: 3.5cm;text-align: right;"><span style="display: inline-block;width: 2.5cm;text-align: left;">Subtotal:</span><span style="display: inline-block;width:1cm;">'+info_fact.vsubtotal+' </span></p>' +                 
-            '<p style="margin:0;text-align: right;"><span style="display: inline-block;">VR Descuento:</span><span style="display: inline-block;width: 2cm;text-align: right;">'+ info_fact.vdescuento + '</span></p>' +
-                '<hr style="width: 1.5cm;margin-left: 2cm;">' +
-                '<p>Total Finanza:' + info_fact.finan + '</p>' +
-                '<p>Total a financiar:' + info_fact.aval + '</p>' +
-                '<p>Total Interés:' + numeral(info_fact.finan).format('$0,000') + '</p>' +
-            '</div>' +
-            '<div style="display: inline-block; width:7.5cm; margin: 0.5cm; vertical-align: top;">' +
-                '<p style="text-align: center;">Cambios: Los productos que contengan algunos accesorios deben traerse junto con éste para el cambio</p>' +
-            '</div>' +
-            '<div style="display: inline-block; text-align: left;">' +
-                '<p>Vr Excluido: </p>' +
-                '<p>Vr Exc+inicial: </p>' +
-                '<strong>TOTAL:' + info_fact.val_tot + '</strong>' +
-            '</div>' +
-            '<div style="display: block; width:7.5cm; margin:0 0.5cm; text-align: center;">' +
-                '<div style="margin:0 auto;">' +
-                    '<p>____________________________________</p>' +
-                    '<p>Firma cliente</p>' +
-                    '<p>C.C ' + info_fact.cliente + '</p>' +
-                '</div>' +
-            '</div>' +
-            '<div style="display: inline-block;width: 7.5cm;margin: 0.5cm;vertical-align: top;text-align: left;">' +
-                '<strong>Plan de pago No ' + info_fact.num_pagare + ' </strong>' +
-            '</div>' +
-            '<div style="display: inline-block;background-color: #ccc;text-align: center;font-weight: bold;font-size: 8px; line-height: 3px;">' +
-                '<p>Crédito afianzado por:</p>' +
-                '<p>GARANTIAS CREDITICIAS</p>' +
-                '<p> S.A.S 900.906.654</p>' +
-                '<p>(Ingreso recibidos por terceros)</p>' +
-            '</div>' +
-            '</div>' +
-            '<table style="width:11.5cm; font-size:7px;"><thead><tr>' +
+
+            '<table style="width: auto;margin: 0;padding: 0; font-size:8px;"><thead><tr style="display: block;width: 11.5cm;">' +
             '<th>Cuota</th>' +
-            '<th>F. Pago</th>' +
-            '<th>Vr. Mcia</th>' +
-            '<th>Fianza</th>' +
-            '<th>Iva Fianza</th>' +
-            '<th>Vr. a Financiar</th>' +
-            '<th>Interes</th>' +
-            '<th>Iva Interes </th>' +
-            '<th>Vr.Cuota </th>' +                
+            '<th style="width:4cm;">F. Pago</th>' +
+            '<th style="width:2cm;">Vr. Mcia</th>' +
+            '<th style="width:2cm;">Fianza</th>' +
+            '<th style="width:2cm;">Iva Fianza</th>' +
+            '<th style="width:3cm;">Vr. a Financiar</th>' +
+            '<th style="width:2cm;">Interes</th>' +
+            '<th style="width:2cm;">Iva Interes </th>' +
+            '<th style="width:2cm;">Vr.Cuota </th>' +                
             '</tr></thead>' +
             '<tbody>';
 
             for (k in cuotas) {
-                outputHtmlPagare += '<tr>' +
-                    '<td align="center">' + cuotas[k] + '</td>' +
-                    '<td>' + fecVen[k] + '</td>' +
-                    '<td>' + info_fact.vmcia + '</td>' +
-                    '<td>' + valFianza[k] + '</td>' +
-                    '<td>' + valIvaFia[k] + '</td>' +
-                    '<td>' + info_detail.VTFianza + '</td>' +
-                    '<td>' + info_detail.VTInteres + '</td>' +
-                    '<td>' + info_detail.VTIvaInt + '</td>' +     
-                    '<td>' + valCuota[k] + '</td>' +                     
+                outputHtmlPagare += '<tr style="display: block;width: 11.5cm;">' +
+                    '<td style="width:2cm;">' + cuotas[k] + '</td>' +
+                    '<td style="width:2cm;">' + fecVen[k] + '</td>' +
+                    '<td style="width:2cm;">' + info_fact.vmcia + '</td>' +
+                    '<td style="width:2cm;">' + valFianza[k] + '</td>' +
+                    '<td style="width:2cm;">' + valIvaFia[k] + '</td>' +
+                    '<td style="width:2cm;">' + info_detail.VTFianza + '</td>' +
+                    '<td style="width:2cm;">' + info_detail.VTInteres + '</td>' +
+                    '<td style="width:2cm;">' + info_detail.VTIvaInt + '</td>' +     
+                    '<td style="width:2cm;">' + valCuota[k] + '</td>' +                     
                     '</tr>';
             }
             
             outputHtmlPagare +='</tbody></table>' +
-            '<p style="text-align:center;">Factura impresa por computador. Software Novasoft S.A.S Nit 800.028.326-1</p>'+
+            '<p  style="text-align:center;">Factura impresa por computador. Software Novasoft S.A.S Nit 800.028.326-1</p>'+
             '</div></div>';
 
 
-            if (info_fact.nom_tip.trim() != "PAGARE DE VENTA") {
+            if (info_fact.nom_tip.trim() == "PAGARE DE VENTA") {
                 printHtml(outputHtmlPagare);
             } else {
                 printHtml(outputHtmlRecibo);
