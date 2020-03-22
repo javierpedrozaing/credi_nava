@@ -449,7 +449,7 @@ function printInvoiceLetter(number, ignorePreload) {
             '</div>' +
 
             '<div style="width: 8.7cm;padding: 0px 0;display: inline-block;">' +
-                '<h2 style="background-color:#ccc;text-align: left;width: 5cm;margin: 2px 0;">Cupo Disponible  $  ' + info_fact.cup_cli + '</h2>' +
+                '<h2 style="background-color:#bdb8b8;text-align: left;width: 5cm;margin: 2px 0;">Cupo Disponible  $  ' + info_fact.cup_cli + '</h2>' +
             '</div>' +
             '<span style="text-align: right;position: relative;">(Para su uso debe estar al día).</span>' + 
             '<p style="margin: 0;">Aplica restricciones para primeros creditos con codeudor</p>';
@@ -479,7 +479,7 @@ function printInvoiceLetter(number, ignorePreload) {
                 '<td style="width:2cm;">' + valInt[k] + '</td>' +
                 '<td style="width:2cm;">' + valFianza[k] + '</td>' +
                 '<td style="width:2cm;">' + info_detail.VTInteres + '</td>' +
-                '<td style="width:2cm;">' + info_detail.ValorTotal + '</td>' +
+                '<td style="width:2cm; text-align:right;">' + info_detail.ValorTotal + '</td>' +
                 '</tr>';
         }
 
@@ -552,7 +552,7 @@ function printInvoiceLetter(number, ignorePreload) {
             '</div>' +
 
             '<div style="width: 8.7cm;padding: 0px 0;display: inline-block;">' +
-                '<h2 style="background-color:#ccc;text-align: left;width: 5cm;margin: 2px 0;">Cupo Disponible  $  ' + info_fact.cup_cli + '</h2>' +
+                '<h2 style="background-color:#bdb8b8;text-align: left;width: 5cm;margin: 2px 0;">Cupo Disponible  $  ' + info_fact.cup_cli + '</h2>' +
             '</div>' +
             '<span style="text-align: right;position: relative;">(Para su uso debe estar al día).</span>' + 
             '<p style="margin: 0;">Aplica restricciones para primeros creditos con codeudor</p>';
@@ -582,7 +582,7 @@ function printInvoiceLetter(number, ignorePreload) {
                 '<td style="width:2cm;">' + valInt[k] + '</td>' +
                 '<td style="width:2cm;">' + valFianza[k] + '</td>' +
                 '<td style="width:2cm;">' + info_detail.VTInteres + '</td>' +
-                '<td style="width:2cm;">' + info_detail.ValorTotal + '</td>' +
+                '<td style="width:2cm; text-align:right;">' + info_detail.ValorTotal + '</td>' +
                 '</tr>';
         }
 
@@ -654,16 +654,16 @@ function printInvoiceLetter(number, ignorePreload) {
                         '<p">Documento: ' + info_fact.num_doc + '</p>' +
                         '<div style="display: block;">' +
                             '<p style="display: inline-block; width: 2cm; font-weight: bold;"> Con Huella:</p>' +
-                            '<p style="background-color:#ccc; display: inline-block; padding:0 0.5cm;">' + info_fact.con_huella + '</p >' +
+                            '<p style="background-color:#bdb8b8; display: inline-block; padding:0 0.5cm; padding: 4px 17px;">' + info_fact.con_huella + '</p >' +
                         '</div>' +
                         '<p>Elaboró: ' + info_fact.nom_ven + '</p>' +
                     '</div>' +
                 '</div>' +
-                '<div style="padding: 0px 0;display: inline-block;">' +                    
-                    '<h2 style="text-align: left; display: inline-block; width:8.5cm;"><span style="background-color:#bdb8b8; width: 6cm;; display: block;">Cupo disponible:' + info_fact.cup_cli + '</span></h2>' +
+                '<div style="padding: 0px 0;display: inline-block; margin-bottom:0;">' +                    
+                    '<h2 style="text-align: left; display: inline-block; width:8.5cm; margin-bottom:0;"><span style="background-color:#bdb8b8; width: 6cm;; display: block;">Cupo disponible:  $  ' + info_fact.cup_cli + '</span></h2>' +
                     '<span style="text-align: right;position: relative; display: inline-block; vertical-align:super; ">(Para su uso debe estar al día) </span>' +
                 '</div>' +
-                '<p>Aplica restricciones para primeros creditos con codeudor</p>' +
+                '<p style="margin-top: 0;">Aplica restricciones para primeros creditos con codeudor</p>' +
                 '<table style="width:11.5cm; font-size:8px;">' +
                 '<thead><tr style="border-top: 1px solid #000000;display: block;width: 11.5cm;border-bottom: 1px solid #000000; text-align:left;">' +
                     '<th style="width:1cm;">Código</th>' +
@@ -713,7 +713,7 @@ function printInvoiceLetter(number, ignorePreload) {
                         '<p style="margin:0; float: right;"><span style="width: 3cm;display: inline-block;">Vr Exc+inicial: </span> <span style="width: 1cm;float: right;text-align: right;"> 0 </span></p>' + //??                        
                         '<p style="margin:0; float: right" ><strong style="width: 3cm;display: inline-block;">TOTAL: </strong> <span  style="width: 1cm;float: right;text-align: right;"> ' + info_fact.val_tot + '</span></p>' +
                     '</div>' +
-                    '<div style="display: block; width:6.5cm; margin:0 0.5cm; text-align: center;">' +
+                    '<div style="display: block; width:6.5cm; margin:0.6cm; text-align: center;">' +
                         '<div style="margin:0 auto;">' +
                             '<hr style="border:1px solid #0000008f; width:5cm;">' +
                             '<p style="margin:0;">Firma cliente</p>' +                            
@@ -722,7 +722,7 @@ function printInvoiceLetter(number, ignorePreload) {
                     '</div>' +
 
                     '<div style="display: inline-block;width: 7cm;margin: 8px 0.1cm;;vertical-align: top;text-align: left;">' +                        
-                        '<strong>Plan de pago Obligación No' + info_fact.num_pagare + ' </strong>' +
+                        '<strong>Plan de pago Obligación No. ' + info_fact.num_pagare + ' </strong>' +
                     '</div>' +
 
                     '<div style="display: inline-block;background-color: #bdb8b8;text-align: center;font-weight: bold;font-size: 8px;width: 4.5cm;">' +
@@ -788,16 +788,16 @@ function printInvoiceLetter(number, ignorePreload) {
                     '<p">Documento: ' + info_fact.num_doc + '</p>' +
                     '<div style="display: block;">' +
                         '<p style="display: inline-block; width: 2cm; font-weight: bold;"> Con Huella:</p>' +
-                        '<p style="background-color:#ccc; display: inline-block; padding:0 0.5cm;">' + info_fact.con_huella + '</p >' +
+                        '<p style="background-color:#bdb8b8; display: inline-block; padding:0 0.5cm;  padding: 4px 17px;">' + info_fact.con_huella + '</p >' +
                     '</div>' +
                     '<p>Elaboró: ' + info_fact.nom_ven + '</p>' +
                 '</div>' +
             '</div>' +
             '<div style="padding: 0px 0;display: inline-block;">' +                    
-                '<h2 style="text-align: left; display: inline-block; width:8.5cm;"><span style="background-color:#bdb8b8; width: 6cm;; display: block;">Cupo disponible:' + info_fact.cup_cli + '</span></h2>' +
+                '<h2 style="text-align: left; display: inline-block; width:8.5cm; margin-bottom:0;"><span style="background-color:#bdb8b8; width: 6cm;; display: block;">Cupo disponible:   $  ' + info_fact.cup_cli + '</span></h2>' +
                 '<span style="text-align: right;position: relative; display: inline-block; vertical-align:super; ">(Para su uso debe estar al día) </span>' +
             '</div>' +
-            '<p>Aplica restricciones para primeros creditos con codeudor</p>' +
+            '<p style="margin-top: 0;">Aplica restricciones para primeros creditos con codeudor</p>' +
             '<table style="width:11.5cm; font-size:8px;">' +
             '<thead><tr style="border-top: 1px solid #000000;display: block;width: 11.5cm;border-bottom: 1px solid #000000; text-align:left;">' +
                 '<th style="width:1cm;">Código</th>' +
@@ -847,7 +847,7 @@ function printInvoiceLetter(number, ignorePreload) {
                     '<p style="margin:0; float: right;"><span style="width: 3cm;display: inline-block;">Vr Exc+inicial: </span> <span style="width: 1cm;float: right;text-align: right;"> 0 </span></p>' + //??                        
                     '<p style="margin:0; float: right" ><strong style="width: 3cm;display: inline-block;">TOTAL: </strong> <span  style="width: 1cm;float: right;text-align: right;"> ' + info_fact.val_tot + '</span></p>' +
                 '</div>' +
-                '<div style="display: block; width:6.5cm; margin:0 0.5cm; text-align: center;">' +
+                '<div style="display: block; width:6.5cm; margin:0.6cm; text-align: center;">' +
                     '<div style="margin:0 auto;">' +
                         '<hr style="border:1px solid #0000008f; width:5cm;">' +
                         '<p style="margin:0;">Firma cliente</p>' +                            
@@ -856,7 +856,7 @@ function printInvoiceLetter(number, ignorePreload) {
                 '</div>' +
 
                 '<div style="display: inline-block;width: 7cm;margin: 8px 0.1cm;;vertical-align: top;text-align: left;">' +                        
-                    '<strong>Plan de pago Obligación No' + info_fact.num_pagare + ' </strong>' +
+                    '<strong>Plan de pago Obligación No. ' + info_fact.num_pagare + ' </strong>' +
                 '</div>' +
 
                 '<div style="display: inline-block;background-color: #bdb8b8;text-align: center;font-weight: bold;font-size: 8px;width: 4.5cm;">' +
@@ -896,7 +896,7 @@ function printInvoiceLetter(number, ignorePreload) {
             '</div></div>';
 
 
-            if (info_fact.nom_tip.trim() == "PAGARE DE VENTA") {
+            if (info_fact.nom_tip.trim() != "PAGARE DE VENTA") {
                 printHtml(outputHtmlPagare);
             } else {
                 printHtml(outputHtmlRecibo);
